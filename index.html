@@ -1,0 +1,3144 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ===== SEO & Meta ===== -->
+<title>أثر وسائل التواصل الاجتماعي على الصحة النفسية للمراهقين</title>
+<meta name="description" content="بحث علمي تفاعلي عن أثر السوشيال ميديا على الصحة النفسية للمراهقين — مع شمشون. تعرف على الدوبامين، الخوارزميات، والحلول العملية.">
+<meta name="author" content="أحمد كرم أحمد ياسين">
+<meta name="keywords" content="سوشيال ميديا، صحة نفسية، مراهقين، إدمان الموبايل، دوبامين، تيك توك، انستجرام">
+
+<!-- Open Graph (واتساب / فيسبوك / لينكدإن) -->
+<meta property="og:type"        content="website">
+<meta property="og:title"       content="أثر السوشيال ميديا على الصحة النفسية للمراهقين">
+<meta property="og:description" content="بحث علمي تفاعلي — هل أنت مدمن على الموبايل؟ اكتشف الحقيقة العلمية واختبر نفسك.">
+<meta property="og:image"       content="https://og-image.vercel.app/%D8%A3%D8%AB%D8%B1%20%D8%A7%D9%84%D8%B3%D9%88%D8%B4%D9%8A%D8%A7%D9%84%20%D9%85%D9%8A%D8%AF%D9%8A%D8%A7.png?theme=dark&md=1&fontSize=75px">
+<meta property="og:locale"      content="ar_EG">
+
+<!-- Twitter Card -->
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="أثر السوشيال ميديا على الصحة النفسية للمراهقين">
+<meta name="twitter:description" content="بحث علمي تفاعلي — اكتشف كيف تستغلك التطبيقات واختبر نفسك الآن.">
+
+<!-- Favicon (emoji SVG — يشتغل على كل المتصفحات الحديثة) -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<style>
+/* ===== المتغيرات الأساسية ===== */
+:root {
+  --primary: #667eea;
+  --secondary: #764ba2;
+  --accent: #f093fb;
+  --success: #48bb78;
+  --danger: #f56565;
+  --warning: #ed8936;
+  --dark: #1a202c;
+  --light: #f7fafc;
+  --text-dark: #2d3748;
+  --text-light: #cbd5e0;
+  --card-bg: #ffffff;
+  --body-bg: #f7fafc;
+  --nav-bg: rgba(255,255,255,0.95);
+  --border: #e2e8f0;
+  --shadow: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
+  --grad: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --grad-accent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --radius: 16px;
+  --font: 'Cairo', 'Tajawal', sans-serif;
+}
+
+[data-theme="dark"] {
+  --card-bg: #2d3748;
+  --body-bg: #1a202c;
+  --nav-bg: rgba(26,32,44,0.97);
+  --border: #4a5568;
+  --text-dark: #e2e8f0;
+  --text-light: #a0aec0;
+  --light: #2d3748;
+  --shadow: 0 4px 20px rgba(0,0,0,0.3);
+  --shadow-lg: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+/* ===== إعادة الضبط ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--font);
+  background: var(--body-bg);
+  color: var(--text-dark);
+  line-height: 1.8;
+  transition: background 0.3s, color 0.3s;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; }
+ul { list-style: none; }
+
+/* ===== شريط التقدم ===== */
+#progress-bar {
+  position: fixed;
+  top: 0; right: 0;
+  height: 3px;
+  background: var(--grad);
+  z-index: 9999;
+  width: 0%;
+  transition: width 0.1s;
+}
+
+/* ===== النافبار ===== */
+nav {
+  position: fixed;
+  top: 3px;
+  width: 100%;
+  background: var(--nav-bg);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  z-index: 1000;
+  padding: 0 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  transition: background 0.3s;
+}
+.nav-logo {
+  font-size: 1.1rem;
+  font-weight: 900;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  white-space: nowrap;
+}
+.nav-links {
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
+.nav-links a {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  padding: 0.35rem 0.7rem;
+  border-radius: 8px;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.nav-links a:hover { background: var(--primary); color: white; }
+.nav-actions { display: flex; gap: 0.5rem; align-items: center; }
+#dark-toggle {
+  background: var(--border);
+  border: none;
+  border-radius: 50%;
+  width: 38px; height: 38px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+#dark-toggle:hover { background: var(--primary); color: white; }
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px;
+}
+.hamburger span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--text-dark);
+  border-radius: 2px;
+  transition: all 0.3s;
+}
+
+/* ===== تجاوب الموبايل للنافبار ===== */
+@media(max-width: 860px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 64px; right: 0; left: 0;
+    background: var(--nav-bg);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 1.5rem;
+    gap: 0.3rem;
+    z-index: 999;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    animation: nav-drop 0.25s ease;
+  }
+  .nav-links.open a { font-size: 0.95rem; padding: 0.6rem 0.8rem; }
+}
+@keyframes nav-drop {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== القسم الرئيسي Hero ===== */
+#hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5rem 2rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+#hero::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(ellipse at center, rgba(102,126,234,0.15) 0%, transparent 60%);
+  animation: pulse-bg 8s ease-in-out infinite alternate;
+}
+@keyframes pulse-bg {
+  0% { transform: scale(1); opacity: 0.5; }
+  100% { transform: scale(1.1); opacity: 1; }
+}
+.hero-content { position: relative; z-index: 1; max-width: 800px; }
+.hero-question {
+  font-size: clamp(1rem, 3vw, 1.3rem);
+  color: #a0aec0;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+.hero-title {
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: white;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+}
+.hero-title .highlight {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.typewriter-cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  background: #f093fb;
+  margin-right: 4px;
+  animation: blink 0.7s step-end infinite;
+  vertical-align: text-bottom;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* SVG شمشون */
+.shamshon-svg {
+  margin: 1.5rem auto;
+  width: 120px; height: 120px;
+  background: linear-gradient(135deg, rgba(102,126,234,0.2), rgba(118,75,162,0.2));
+  border-radius: 50%;
+  border: 3px solid rgba(102,126,234,0.4);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 3rem;
+  animation: float 3s ease-in-out infinite;
+  position: relative;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.shamshon-svg::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%; transform: translateX(-50%);
+  width: 80px; height: 15px;
+  background: radial-gradient(ellipse, rgba(102,126,234,0.3), transparent);
+  border-radius: 50%;
+}
+
+.hero-stats {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  margin: 2rem auto;
+  max-width: 500px;
+  backdrop-filter: blur(10px);
+}
+.stat-big {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 900;
+  color: #f093fb;
+}
+.stat-label { color: #a0aec0; font-size: 0.9rem; }
+
+.cta-btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--grad);
+  color: white;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  font-family: var(--font);
+  cursor: pointer;
+  border: none;
+  margin-top: 1.5rem;
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(102,126,234,0.4);
+}
+.cta-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(102,126,234,0.5); }
+
+/* ===== أقسام عامة ===== */
+section {
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-full { max-width: 100%; padding: 5rem 0; }
+.section-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+.section-title {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+.section-title .accent { color: var(--primary); }
+.section-subtitle {
+  color: var(--text-light);
+  font-size: 1rem;
+  margin-bottom: 3rem;
+}
+.section-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(102,126,234,0.1), rgba(118,75,162,0.1));
+  border: 1px solid rgba(102,126,234,0.3);
+  color: var(--primary);
+  padding: 0.3rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* ===== بطاقة شمشون ===== */
+.shamshon-box {
+  background: linear-gradient(135deg, rgba(102,126,234,0.1), rgba(240,147,251,0.1));
+  border: 2px solid rgba(102,126,234,0.25);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  position: relative;
+  overflow: hidden;
+}
+.shamshon-box::before {
+  content: '🧒';
+  position: absolute;
+  left: 1rem; top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  opacity: 0.15;
+}
+.shamshon-box-title {
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.shamshon-box-title::before { content: '👋'; }
+
+/* ===== البطاقات ===== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+.card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.card-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.7rem; color: var(--text-dark); }
+.card-text { color: var(--text-light); font-size: 0.95rem; line-height: 1.7; }
+
+/* ===== الإحصائيات ===== */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+.stat-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: all 0.3s;
+}
+.stat-card:hover { transform: scale(1.03); }
+.stat-number {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.stat-desc { font-size: 0.85rem; color: var(--text-light); }
+
+/* ===== شريط التقدم ===== */
+.progress-item { margin-bottom: 1.5rem; }
+.progress-header { display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-weight: 600; font-size: 0.9rem; }
+.progress-bar-bg { background: var(--border); border-radius: 50px; height: 10px; overflow: hidden; }
+.progress-fill {
+  height: 100%; border-radius: 50px;
+  background: var(--grad);
+  width: 0%;
+  transition: width 1.5s cubic-bezier(0.4,0,0.2,1);
+}
+.progress-fill.danger { background: var(--grad-accent); }
+.progress-fill.success { background: linear-gradient(90deg, #48bb78, #38a169); }
+.progress-fill.warning { background: linear-gradient(90deg, #ed8936, #dd6b20); }
+
+/* ===== التابز ===== */
+.tabs-container { margin-top: 2rem; }
+.tabs-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 1rem;
+}
+.tab-btn {
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  border: 2px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text-dark);
+  font-family: var(--font);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.tab-btn:hover { border-color: var(--primary); color: var(--primary); }
+.tab-btn.active { background: var(--grad); color: white; border-color: transparent; }
+.tab-content { display: none; animation: fadeIn 0.3s ease; }
+.tab-content.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ===== قسم الآثار السلبية - خلفية خاصة ===== */
+#negative {
+  background: linear-gradient(135deg, #0f0c29 0%, #1a1a2e 100%);
+  max-width: 100%;
+  padding: 5rem 0;
+  color: white;
+}
+#negative .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+#negative .section-title { color: white; }
+#negative .section-subtitle { color: #a0aec0; }
+#negative .card { background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); color: white; }
+#negative .card-title { color: white; }
+#negative .card-text { color: rgba(255,255,255,0.7); }
+#negative .tab-btn { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.15); color: #e2e8f0; }
+#negative .tab-btn:hover { border-color: var(--primary); color: white; }
+#negative .tab-btn.active { background: var(--grad); color: white; border-color: transparent; }
+#negative .tabs-nav { border-color: rgba(255,255,255,0.1); }
+#negative .shamshon-box { background: rgba(102,126,234,0.15); border-color: rgba(102,126,234,0.3); }
+#negative .progress-bar-bg { background: rgba(255,255,255,0.1); }
+
+/* مخطط دائرة العادة */
+.habit-circle-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+}
+.habit-circle {
+  position: relative;
+  width: 280px; height: 280px;
+}
+.hc-step {
+  position: absolute;
+  background: rgba(102,126,234,0.2);
+  border: 2px solid rgba(102,126,234,0.4);
+  border-radius: 12px;
+  padding: 0.7rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  text-align: center;
+  width: 100px;
+}
+.hc-step:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); }
+.hc-step:nth-child(2) { top: 50%; right: 0; transform: translateY(-50%); }
+.hc-step:nth-child(3) { bottom: 0; left: 50%; transform: translateX(-50%); }
+.hc-step:nth-child(4) { top: 50%; left: 0; transform: translateY(-50%); }
+.hc-arrow {
+  position: absolute;
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  color: rgba(240,147,251,0.8);
+  animation: rotate 4s linear infinite;
+}
+@keyframes rotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+.hc-center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px; height: 70px;
+  border-radius: 50%;
+  background: var(--grad);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.8rem;
+}
+
+/* ===== قسم الإيجابيات ===== */
+/* قسم تعريف شمشون */
+#shamshon-intro { background: linear-gradient(135deg, #f8f0ff 0%, #fff0f8 100%); }
+[data-theme="dark"] #shamshon-intro { background: linear-gradient(135deg, #1a1030 0%, #1a0820 100%); }
+
+#positive { background: linear-gradient(135deg, #f0fff4 0%, #fff5f5 100%); }
+[data-theme="dark"] #positive { background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%); }
+.pos-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 2rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: all 0.3s;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.pos-card::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0; left: 0;
+  height: 4px;
+  background: var(--grad);
+}
+.pos-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+.pos-card .card-icon { font-size: 3rem; margin-bottom: 1rem; }
+
+/* ===== قسم الحلول - Timeline ===== */
+#solutions { background: var(--body-bg); }
+.timeline { position: relative; padding: 1rem 0; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  right: 24px; top: 0; bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--primary), var(--accent));
+  border-radius: 3px;
+}
+.timeline-item {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  position: relative;
+  padding-right: 70px;
+}
+.tl-dot {
+  position: absolute;
+  right: 8px;
+  top: 0;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--grad);
+  color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 4px rgba(102,126,234,0.2);
+  z-index: 1;
+}
+.tl-content {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 1.8rem;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  flex: 1;
+  transition: all 0.3s;
+}
+.tl-content:hover { box-shadow: var(--shadow-lg); transform: translateX(-3px); }
+.tl-title { font-size: 1.3rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--primary); }
+.tl-desc { color: var(--text-light); font-size: 0.95rem; margin-bottom: 1rem; }
+.apps-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+.app-badge {
+  display: flex; align-items: center; gap: 0.3rem;
+  background: linear-gradient(135deg, rgba(102,126,234,0.1), rgba(118,75,162,0.1));
+  border: 1px solid rgba(102,126,234,0.2);
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+.habits-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+.habits-table th {
+  background: var(--grad);
+  color: white;
+  padding: 0.8rem 1rem;
+  text-align: right;
+}
+.habits-table td {
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-dark);
+}
+.habits-table tr:nth-child(even) td { background: rgba(102,126,234,0.04); }
+.habits-table .old { color: var(--danger); }
+.habits-table .new { color: var(--success); font-weight: 600; }
+
+.checklist { list-style: none; padding: 0; }
+.checklist li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.7rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  user-select: none;
+  font-size: 0.95rem;
+}
+.checklist li:hover { background: rgba(102,126,234,0.07); }
+.check-box {
+  width: 22px; height: 22px;
+  border: 2px solid var(--primary);
+  border-radius: 6px;
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.checklist li.done .check-box {
+  background: var(--primary);
+  color: white;
+}
+.checklist li.done .check-box::after { content: '✓'; font-size: 0.9rem; }
+.checklist li.done span { text-decoration: line-through; opacity: 0.6; }
+
+/* ===== قسم التحدي ===== */
+#challenge {
+  background: linear-gradient(135deg, #1a0533 0%, #0d1b4b 50%, #1a0533 100%);
+  max-width: 100%;
+  padding: 5rem 0;
+  text-align: center;
+}
+#challenge .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+#challenge .section-title { color: white; }
+.challenge-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+.chal-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius);
+  padding: 2rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.chal-card:hover { transform: translateY(-5px); background: rgba(255,255,255,0.1); }
+.chal-icon { font-size: 3rem; margin-bottom: 1rem; }
+.chal-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem; }
+.chal-desc { font-size: 0.88rem; color: rgba(255,255,255,0.7); }
+.chal-check {
+  margin-top: 1.2rem;
+  display: flex; align-items: center; gap: 0.7rem;
+  cursor: pointer;
+}
+.chal-checkbox {
+  width: 24px; height: 24px;
+  border: 2px solid rgba(255,255,255,0.4);
+  border-radius: 6px;
+  flex-shrink: 0;
+  transition: all 0.2s;
+  display: flex; align-items: center; justify-content: center;
+}
+.chal-card.checked .chal-checkbox { background: var(--success); border-color: var(--success); color: white; }
+.chal-card.checked .chal-checkbox::after { content: '✓'; font-weight: 700; }
+.challenge-cta {
+  display: inline-block;
+  padding: 1rem 3rem;
+  background: linear-gradient(135deg, #48bb78, #38a169);
+  color: white;
+  border-radius: 50px;
+  font-weight: 800;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border: none;
+  font-family: var(--font);
+  transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(72,187,120,0.4);
+}
+.challenge-cta:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(72,187,120,0.5); }
+.days-counter {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0.5rem;
+  margin: 1.5rem 0;
+  color: rgba(255,255,255,0.8);
+  font-size: 1rem;
+}
+.days-number {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #f093fb;
+  min-width: 60px;
+  text-align: center;
+}
+
+/* ===== قسم التحليل ===== */
+.compare-table {
+  width: 100%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin: 2rem 0;
+}
+.compare-table thead tr th { padding: 1.2rem; font-size: 1.1rem; font-weight: 700; }
+.compare-table thead .col-bad { background: #fc8181; color: white; }
+.compare-table thead .col-good { background: #68d391; color: white; }
+.compare-table tbody tr td { padding: 1rem; border-bottom: 1px solid var(--border); background: var(--card-bg); }
+.compare-table tbody tr td:first-child { color: var(--danger); }
+.compare-table tbody tr td:last-child { color: var(--success); font-weight: 600; }
+
+/* Before/After Slider */
+.before-after-container {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: var(--shadow-lg);
+  height: clamp(200px, 35vw, 320px);
+  cursor: ew-resize;
+  user-select: none;
+}
+.ba-panel {
+  position: absolute;
+  top: 0; bottom: 0;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column;
+  padding: clamp(1rem, 3vw, 2rem);
+  text-align: center;
+  color: white;
+}
+/* "قبل" — الجانب الأحمر — يغطي الكونتينر كله من اليمين للشمال */
+.ba-before {
+  left: 0; right: 0;
+  background: linear-gradient(135deg, #c0392b, #e74c3c);
+  z-index: 0;
+}
+/* "بعد" — الجانب الأخضر — يظهر فوق الأحمر وعرضه يتغير بالسلايدر */
+.ba-after {
+  left: 0; right: 0;
+  background: linear-gradient(135deg, #27ae60, #2ecc71);
+  z-index: 1;
+  clip-path: inset(0 0 0 50%);
+}
+.ba-divider {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 50%;
+  width: 3px;
+  background: rgba(255,255,255,0.9);
+  z-index: 3;
+  transform: translateX(-50%);
+  cursor: ew-resize;
+}
+.ba-handle {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 42px; height: 42px;
+  background: white;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+  font-size: 1.1rem;
+  z-index: 4;
+}
+.ba-label {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+.ba-stats {
+  font-size: clamp(0.72rem, 1.8vw, 0.88rem);
+  line-height: 1.9;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+/* ===== قسم الرأي الشخصي ===== */
+#personal { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
+[data-theme="dark"] #personal { background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%); }
+.personal-timeline {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 1rem 0 2rem;
+  scrollbar-width: thin;
+}
+.pt-item {
+  flex-shrink: 0;
+  width: 160px;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  border: 1px solid var(--border);
+  text-align: center;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+.pt-icon { font-size: 2rem; margin-bottom: 0.5rem; }
+.pt-label { font-weight: 700; font-size: 0.85rem; color: var(--primary); margin-bottom: 0.3rem; }
+.pt-text { font-size: 0.8rem; color: var(--text-light); }
+.pt-connector {
+  display: flex; align-items: center;
+  color: var(--primary);
+  font-size: 1.5rem;
+  padding-top: 2rem;
+  flex-shrink: 0;
+}
+.quote-box {
+  background: var(--grad);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  margin: 2rem 0;
+  color: white;
+}
+.quote-text { font-size: clamp(1.2rem, 3vw, 1.8rem); font-weight: 800; }
+.quote-sub { margin-top: 0.5rem; opacity: 0.8; font-size: 0.9rem; }
+
+/* ===== اختبر نفسك ===== */
+#quiz-section { background: var(--body-bg); }
+.quiz-container {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+  max-width: 700px;
+  margin: 0 auto;
+}
+.quiz-progress { display: flex; gap: 0.5rem; margin-bottom: 2rem; }
+.qp-dot {
+  flex: 1; height: 6px; border-radius: 3px;
+  background: var(--border);
+  transition: background 0.3s;
+}
+.qp-dot.done { background: var(--primary); }
+.qp-dot.active { background: var(--accent); }
+.quiz-question { font-size: 1.2rem; font-weight: 700; margin-bottom: 1.5rem; }
+.quiz-options { display: grid; gap: 0.8rem; }
+.quiz-option {
+  padding: 1rem 1.2rem;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: var(--font);
+  font-size: 0.95rem;
+  background: var(--card-bg);
+  color: var(--text-dark);
+  text-align: right;
+}
+.quiz-option:hover { border-color: var(--primary); background: rgba(102,126,234,0.07); }
+.quiz-option.selected { border-color: var(--primary); background: rgba(102,126,234,0.12); font-weight: 600; }
+.quiz-result {
+  display: none;
+  text-align: center;
+  padding: 2rem;
+}
+.result-emoji { font-size: 4rem; margin-bottom: 1rem; }
+.result-label { font-size: 1.8rem; font-weight: 900; margin-bottom: 0.5rem; }
+.result-text { color: var(--text-light); margin-bottom: 2rem; }
+.result-score {
+  font-size: 3rem;
+  font-weight: 900;
+  background: var(--grad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.quiz-nav { display: flex; gap: 1rem; justify-content: space-between; margin-top: 2rem; }
+.quiz-btn {
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  border: 2px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+  font-family: var(--font);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.quiz-btn.primary { background: var(--grad); color: white; border-color: transparent; }
+.quiz-btn:hover { transform: translateY(-2px); }
+
+/* ===== خطة العمل ===== */
+#action-plan { background: linear-gradient(135deg, #f0fff4, #ebf8ff); }
+[data-theme="dark"] #action-plan { background: linear-gradient(135deg, #1a202c, #2d3748); }
+.plan-form {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border);
+  max-width: 600px;
+  margin: 0 auto;
+}
+.form-group { margin-bottom: 1.5rem; }
+.form-label { display: block; font-weight: 600; margin-bottom: 0.5rem; font-size: 0.9rem; }
+.form-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  font-family: var(--font);
+  font-size: 0.95rem;
+  background: var(--body-bg);
+  color: var(--text-dark);
+  transition: border-color 0.2s;
+  text-align: right;
+}
+.form-input:focus { outline: none; border-color: var(--primary); }
+.save-btn {
+  width: 100%;
+  padding: 1rem;
+  background: var(--grad);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-family: var(--font);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.save-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(102,126,234,0.4); }
+
+/* ===== المراجع ===== */
+#references { background: var(--body-bg); }
+.ref-category {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+.ref-cat-header {
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+.ref-cat-header:hover { background: rgba(102,126,234,0.07); }
+.ref-cat-header .arrow { transition: transform 0.3s; font-size: 0.8rem; }
+.ref-cat-header.open .arrow { transform: rotate(90deg); }
+.ref-cat-body { display: none; padding: 1rem 1.5rem; border-top: 1px solid var(--border); }
+.ref-cat-body.open { display: block; }
+.ref-item {
+  padding: 0.6rem;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  color: var(--text-light);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+.ref-item:last-child { border-bottom: none; }
+.copy-btn {
+  background: none; border: 1px solid var(--border); color: var(--text-light);
+  padding: 0.2rem 0.5rem; border-radius: 6px;
+  font-size: 0.75rem; cursor: pointer; font-family: var(--font);
+  transition: all 0.2s; flex-shrink: 0;
+}
+.copy-btn:hover { background: var(--primary); color: white; border-color: var(--primary); }
+
+/* ===== الفوتر ===== */
+footer {
+  background: linear-gradient(135deg, #0f0c29, #1a0533);
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.footer-inner { max-width: 800px; margin: 0 auto; }
+.footer-title { font-size: 1.3rem; font-weight: 900; margin-bottom: 0.5rem; }
+.footer-sub { color: rgba(255,255,255,0.6); font-size: 0.88rem; margin-bottom: 2rem; }
+.share-btns { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin: 1.5rem 0; }
+
+/* ===== زر تحميل PDF ===== */
+.pdf-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  background: linear-gradient(135deg, #e53e3e, #c53030);
+  color: white !important;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s;
+  box-shadow: 0 2px 10px rgba(229,62,62,0.4);
+  white-space: nowrap;
+  -webkit-text-fill-color: white;
+}
+.pdf-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 18px rgba(229,62,62,0.5);
+  background: linear-gradient(135deg, #fc4f4f, #e53e3e);
+}
+.pdf-btn svg { flex-shrink: 0; }
+
+/* نسخة الفوتر أكبر شوية */
+.pdf-btn-lg {
+  padding: 0.6rem 1.5rem;
+  font-size: 0.9rem;
+  gap: 0.6rem;
+  background: linear-gradient(135deg, #e53e3e, #c53030);
+  box-shadow: 0 4px 15px rgba(229,62,62,0.4);
+}
+.pdf-btn-lg:hover { box-shadow: 0 8px 25px rgba(229,62,62,0.5); }
+.share-btn {
+  padding: 0.6rem 1.5rem;
+  border-radius: 50px;
+  font-family: var(--font);
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+  display: flex; align-items: center; gap: 0.4rem;
+}
+.share-btn.whatsapp { background: #25D366; color: white; }
+.share-btn.twitter { background: #1DA1F2; color: white; }
+.share-btn.facebook { background: #1877F2; color: white; }
+.share-btn.print { background: rgba(255,255,255,0.1); color: white; border: 1px solid rgba(255,255,255,0.2); }
+.share-btn:hover { transform: translateY(-2px); }
+.back-top-btn {
+  position: fixed;
+  bottom: 2rem; left: 2rem;
+  width: 50px; height: 50px;
+  background: var(--grad);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(102,126,234,0.4);
+  display: none;
+  align-items: center; justify-content: center;
+  transition: all 0.3s;
+  z-index: 100;
+}
+.back-top-btn.visible { display: flex; }
+.back-top-btn:hover { transform: translateY(-3px); }
+
+/* ===== انيميشن عند الظهور ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===== كونفيتي ===== */
+.confetti-piece {
+  position: fixed;
+  width: 10px; height: 10px;
+  top: -10px;
+  border-radius: 2px;
+  animation: confetti-fall 3s linear forwards;
+  z-index: 9999;
+}
+@keyframes confetti-fall {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+/* ===== فاكر شمشون box ===== */
+.remember-box {
+  background: linear-gradient(135deg, rgba(240,147,251,0.15), rgba(102,126,234,0.15));
+  border: 2px dashed rgba(102,126,234,0.3);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  position: relative;
+}
+.remember-box-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 0.7rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+
+/* ===== Dopamine tree ===== */
+.dopamine-tree {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+.dop-branch {
+  background: rgba(255,255,255,0.05);
+  border-radius: 14px;
+  padding: 1.5rem;
+  width: 240px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.dop-branch-title {
+  font-weight: 800;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.dop-branch-title.cheap { color: #fc8181; }
+.dop-branch-title.quality { color: #68d391; }
+.dop-leaf {
+  display: flex; align-items: center; gap: 0.5rem;
+  padding: 0.4rem;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.75);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+.dop-leaf:last-child { border: none; }
+.dop-leaf-icon { font-size: 1rem; }
+
+/* ===== Responsive — fluid لكل الأحجام ===== */
+section {
+  padding: clamp(2rem, 6vw, 5rem) clamp(1rem, 4vw, 2rem);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.section-full { max-width: 100%; padding: clamp(2rem,6vw,5rem) 0; }
+.section-inner { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1rem,4vw,2rem); }
+
+/* Tablet */
+@media(max-width: 900px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Mobile */
+@media(max-width: 640px) {
+  .cards-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .timeline::before { right: 14px; }
+  .timeline-item { padding-right: 44px; }
+  .tl-dot { right: 0; width: 28px; height: 28px; font-size: 0.75rem; }
+  .compare-table { font-size: 0.78rem; }
+  .challenge-cards { grid-template-columns: 1fr; }
+  .personal-timeline { gap: 0.4rem; }
+  .pt-item { width: clamp(105px, 30vw, 145px); }
+  .ba-label { font-size: clamp(0.9rem, 3vw, 1.2rem); }
+  .ba-stats { font-size: clamp(0.65rem, 1.8vw, 0.82rem); }
+  .nav-logo { font-size: 0.82rem; }
+}
+
+/* Small mobile */
+@media(max-width: 400px) {
+  .stats-grid { grid-template-columns: 1fr; }
+  .tab-btn { font-size: 0.7rem; padding: 0.3rem 0.6rem; }
+  .dopamine-tree { flex-direction: column; align-items: center; }
+}
+
+/* ===== Fluid grid helpers (تستبدل الـ JS fixCols) ===== */
+.two-cols {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)) !important;
+}
+.three-cols {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)) !important;
+}
+
+/* ===== طباعة ===== */
+@media print {
+  nav, #dark-toggle, .cta-btn, .back-top-btn, .share-btns, .challenge-cta, .quiz-nav { display: none !important; }
+  body { background: white; color: black; }
+  section { page-break-inside: avoid; }
+}
+
+/* ===== Animations مخصصة ===== */
+
+/* دخول من الأسفل عند الـ scroll */
+.anim-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+.anim-up.in { opacity: 1; transform: translateY(0); }
+
+/* دخول من اليمين */
+.anim-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.anim-right.in { opacity: 1; transform: translateX(0); }
+
+/* pulse على الـ badge */
+.section-badge {
+  animation: badge-in 0.5s ease both;
+}
+@keyframes badge-in {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* تأثير shimmer على الـ stat cards عند الـ hover */
+.stat-card {
+  overflow: hidden;
+}
+.stat-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+.stat-card:hover::after { left: 150%; }
+
+/* card hover lift مع shadow */
+.card, .tl-content, .stat-card, .pos-card, .quiz-container, .plan-form {
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1),
+              box-shadow 0.3s cubic-bezier(0.4,0,0.2,1),
+              border-color 0.3s ease;
+}
+
+/* Floating animation للأيقونات الكبيرة */
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-6px) rotate(1deg); }
+  66% { transform: translateY(-3px) rotate(-1deg); }
+}
+.card-icon, .pos-card .card-icon {
+  display: inline-block;
+  animation: gentle-float 4s ease-in-out infinite;
+}
+
+/* Hero orbs */
+#hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(102,126,234,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(102,126,234,0.06) 1px, transparent 1px);
+  background-size: clamp(30px,5vw,55px) clamp(30px,5vw,55px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Glow effect على الـ section badges */
+.section-badge {
+  position: relative;
+}
+.section-badge::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, rgba(102,126,234,0.3), rgba(240,147,251,0.3));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.section-badge:hover::before { opacity: 1; }
+
+/* Tab transition */
+.tab-content {
+  animation: tab-in 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+@keyframes tab-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Challenge cards entrance */
+.chal-card {
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease,
+              background 0.3s ease;
+}
+.chal-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(240,147,251,0.4);
+  box-shadow: 0 12px 35px rgba(102,126,234,0.25);
+}
+.chal-card.checked:hover {
+  border-color: var(--success);
+  box-shadow: 0 12px 35px rgba(72,187,120,0.3);
+}
+
+/* Timeline item entrance stagger */
+.timeline-item {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.timeline-item:nth-child(1) { transition-delay: 0.05s; }
+.timeline-item:nth-child(2) { transition-delay: 0.15s; }
+.timeline-item:nth-child(3) { transition-delay: 0.25s; }
+.timeline-item:nth-child(4) { transition-delay: 0.35s; }
+.timeline-item:nth-child(5) { transition-delay: 0.45s; }
+
+/* Back to top button improved */
+.back-top-btn {
+  animation: bounce-in 0.4s cubic-bezier(0.4,0,0.2,1);
+}
+@keyframes bounce-in {
+  0%   { transform: scale(0) translateY(20px); opacity: 0; }
+  70%  { transform: scale(1.15) translateY(-3px); }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* Progress bar shimmer */
+#progress-bar {
+  background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+  background-size: 200%;
+  animation: shimmer-bar 2s linear infinite;
+}
+@keyframes shimmer-bar {
+  0%   { background-position: 0%; }
+  100% { background-position: 200%; }
+}
+
+/* ====== FEATURE 1: Phone Mockup + Notification Badge ====== */
+#phone-mockup-section { background:linear-gradient(135deg,#0f0c29,#1a1a2e); padding:clamp(3rem,8vw,6rem) 0; }
+.phone-mockup-wrap { display:grid; grid-template-columns:1fr auto; gap:clamp(2rem,5vw,4rem); align-items:center; max-width:1100px; margin:0 auto; padding:0 clamp(1rem,4vw,2rem); }
+@media(max-width:768px){ .phone-mockup-wrap{grid-template-columns:1fr;} .phone-device{order:-1;} }
+.phone-device { width:clamp(190px,26vw,250px); margin:0 auto; position:relative; flex-shrink:0; }
+.phone-frame { background:#111; border-radius:38px; border:3px solid #333; padding:12px 8px; box-shadow:0 30px 80px rgba(0,0,0,.7),0 0 0 1px #222,inset 0 0 20px rgba(255,255,255,.03); }
+.phone-notch { width:70px;height:18px;background:#111;border-radius:0 0 12px 12px;margin:0 auto 6px;border:2px solid #222;border-top:none; }
+.phone-screen { background:#000;border-radius:22px;overflow:hidden;height:clamp(330px,48vw,460px);position:relative; }
+.phone-statusbar { background:#000;display:flex;justify-content:space-between;align-items:center;padding:6px 12px 4px;font-size:10px;color:white;font-weight:700; }
+.tiktok-feed { height:calc(100% - 55px);overflow:hidden;position:relative; }
+.tiktok-video { width:100%;height:100%;position:absolute;top:0;left:0;display:flex;flex-direction:column;justify-content:flex-end;padding:10px;transition:transform .5s cubic-bezier(.4,0,.2,1); }
+.tv-bg { position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.7); }
+.tv-bg-1{background:linear-gradient(135deg,#1a0533,#0d1b4b)} .tv-bg-2{background:linear-gradient(135deg,#0a1f0a,#1a3a1a)} .tv-bg-3{background:linear-gradient(135deg,#1f0a0a,#3a1a1a)} .tv-bg-4{background:linear-gradient(135deg,#0a0a2e,#1a1a5e)}
+.tv-content{position:relative;z-index:2} .tv-user{display:flex;align-items:center;gap:5px;margin-bottom:5px} .tv-avatar{width:22px;height:22px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0}
+.tv-username{font-size:9px;font-weight:700;color:white} .tv-desc{font-size:8px;color:rgba(255,255,255,.8);line-height:1.4;margin-bottom:6px} .tv-music{font-size:7px;color:rgba(255,255,255,.7)}
+.tv-actions{position:absolute;left:6px;bottom:36px;display:flex;flex-direction:column;gap:10px;align-items:center;z-index:2} .tv-action{text-align:center} .tv-action-icon{font-size:16px;display:block} .tv-action-num{font-size:7px;color:white}
+.tiktok-navbar{background:rgba(0,0,0,.9);display:flex;justify-content:space-around;padding:5px 0 7px;position:absolute;bottom:0;left:0;right:0;z-index:10}
+.tn-item{font-size:14px;text-align:center;color:rgba(255,255,255,.55)} .tn-item.active{color:white}
+.notif-cloud{position:absolute;top:-18px;right:-22px;z-index:10;pointer-events:none}
+.notif-bubble{background:linear-gradient(135deg,#e53e3e,#c53030);color:white;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:900;box-shadow:0 0 0 3px rgba(229,62,62,.3);animation:notif-pop .8s cubic-bezier(.4,0,.2,1) both;position:relative}
+.notif-bubble::after{content:'';position:absolute;bottom:-5px;right:5px;border-left:5px solid transparent;border-right:5px solid transparent;border-top:6px solid #c53030}
+@keyframes notif-pop{0%{transform:scale(0);opacity:0}70%{transform:scale(1.2)}100%{transform:scale(1);opacity:1}}
+.notif-label{font-size:.65rem;color:rgba(255,255,255,.55);text-align:right;margin-top:3px;white-space:nowrap}
+.mockup-text-side{color:white} .msr-row{display:flex;align-items:center;gap:.9rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:13px;padding:.8rem 1.1rem;margin-bottom:.7rem;transition:all .3s}
+.msr-row:hover{background:rgba(255,255,255,.1);transform:translateX(-4px)} .msr-icon{font-size:1.4rem;flex-shrink:0} .msr-info{flex:1} .msr-label{font-size:clamp(.75rem,1.5vw,.84rem);color:rgba(255,255,255,.65)} .msr-val{font-size:clamp(.95rem,2.2vw,1.2rem);font-weight:900;color:#f093fb}
+
+/* ====== FEATURE 2: Personal Stats Dashboard ====== */
+#stats-dashboard{display:none;background:var(--body-bg);padding:clamp(2rem,5vw,4rem) clamp(1rem,4vw,2rem)}
+#stats-dashboard.visible{display:block;animation:fadeIn .5s ease}
+.dashboard-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:1rem;margin:1.5rem auto;max-width:860px}
+.dash-card{background:var(--card-bg);border:1px solid var(--border);border-radius:var(--radius);padding:1.3rem;text-align:center;position:relative;overflow:hidden;transition:all .3s}
+.dash-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.dash-card.red::before{background:linear-gradient(90deg,#f56565,#fc8181)} .dash-card.orange::before{background:linear-gradient(90deg,#ed8936,#f6ad55)} .dash-card.blue::before{background:linear-gradient(90deg,#667eea,#764ba2)} .dash-card.green::before{background:linear-gradient(90deg,#48bb78,#68d391)}
+.dash-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)} .dash-icon{font-size:1.9rem;margin-bottom:.45rem} .dash-num{font-size:clamp(1.4rem,3.5vw,2rem);font-weight:900;line-height:1;margin-bottom:.25rem}
+.dash-card.red .dash-num{color:#f56565} .dash-card.orange .dash-num{color:#ed8936} .dash-card.blue .dash-num{color:#667eea} .dash-card.green .dash-num{color:#48bb78}
+.dash-lbl{font-size:clamp(.68rem,1.4vw,.78rem);color:var(--text-light)} .dash-bar-wrap{margin-top:.7rem;background:var(--border);border-radius:50px;height:5px;overflow:hidden} .dash-bar{height:100%;border-radius:50px;width:0%;transition:width 1.5s cubic-bezier(.4,0,.2,1)}
+.dash-card.red .dash-bar{background:linear-gradient(90deg,#f56565,#fc8181)} .dash-card.orange .dash-bar{background:linear-gradient(90deg,#ed8936,#f6ad55)} .dash-card.blue .dash-bar{background:linear-gradient(90deg,#667eea,#764ba2)} .dash-card.green .dash-bar{background:linear-gradient(90deg,#48bb78,#68d391)}
+.dash-verdict{max-width:680px;margin:1.5rem auto 0;background:var(--card-bg);border:2px solid var(--primary);border-radius:var(--radius);padding:1.4rem;text-align:center}
+.dash-verdict-title{font-size:clamp(.95rem,2.2vw,1.2rem);font-weight:800;color:var(--primary);margin-bottom:.4rem} .dash-verdict-text{font-size:clamp(.78rem,1.7vw,.88rem);color:var(--text-light);line-height:1.7}
+
+/* ====== FEATURE 3: Flashcards ====== */
+#flashcards-section{background:linear-gradient(135deg,#1a0533,#0d1b4b);padding:clamp(3rem,8vw,6rem) 0}
+#flashcards-section .section-title{color:white} #flashcards-section .section-subtitle{color:#94a3b8}
+.fc-wrap{max-width:620px;margin:2rem auto 0;padding:0 clamp(1rem,4vw,2rem)} .fc-counter{text-align:center;color:rgba(255,255,255,.45);font-size:.82rem;margin-bottom:.9rem;font-weight:600;letter-spacing:.05em}
+.fc-scene{perspective:1200px;height:clamp(210px,32vw,270px);cursor:pointer;margin-bottom:1.4rem} .fc-card{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .65s cubic-bezier(.4,0,.2,1)} .fc-card.flipped{transform:rotateY(180deg)}
+.fc-front,.fc-back{position:absolute;inset:0;backface-visibility:hidden;border-radius:var(--radius);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(1.3rem,3.5vw,2.2rem);text-align:center;border:1px solid rgba(255,255,255,.1)}
+.fc-front{background:linear-gradient(135deg,rgba(102,126,234,.22),rgba(118,75,162,.2))} .fc-back{background:linear-gradient(135deg,rgba(72,187,120,.18),rgba(56,161,105,.16));transform:rotateY(180deg)}
+.fc-q-icon{font-size:clamp(1.8rem,4.5vw,2.8rem);margin-bottom:.7rem} .fc-q-text{font-size:clamp(.9rem,2.2vw,1.12rem);font-weight:700;color:white;line-height:1.5} .fc-hint{font-size:.72rem;color:rgba(255,255,255,.35);margin-top:.9rem}
+.fc-a-label{font-size:.68rem;font-weight:700;color:#48bb78;letter-spacing:.08em;margin-bottom:.5rem} .fc-a-text{font-size:clamp(.82rem,1.8vw,.96rem);color:white;line-height:1.7}
+.fc-nav{display:flex;align-items:center;justify-content:center;gap:.8rem} .fc-btn{padding:.55rem 1.3rem;border-radius:50px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07);color:white;font-family:var(--font);font-weight:700;font-size:.85rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:.35rem}
+.fc-btn:hover{background:rgba(255,255,255,.15)} .fc-btn:disabled{opacity:.3;cursor:not-allowed}
+.fc-dots{display:flex;justify-content:center;gap:5px;margin-top:.9rem} .fc-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.18);transition:all .3s} .fc-dot.done{background:#48bb78;transform:scale(1.2)} .fc-dot.curr{background:#f093fb;transform:scale(1.3)}
+</style>
+</head>
+<body>
+
+<!-- شريط التقدم -->
+<div id="progress-bar"></div>
+
+<!-- النافبار -->
+<nav id="navbar">
+  <div class="nav-logo">🧠 أثر السوشيال على المراهقين</div>
+  <div class="nav-links" id="nav-links">
+    <a href="#intro">المقدمة</a>
+    <a href="#negative">الآثار السلبية</a>
+    <a href="#positive">الإيجابيات</a>
+    <a href="#solutions">الحلول</a>
+    <a href="#challenge">التحدي</a>
+    <a href="#quiz-section">اختبر نفسك</a>
+    <a href="#flashcards-section">Flashcards</a>
+    <a href="#references">المراجع</a>
+  </div>
+  <div class="nav-actions">
+    <a href="https://drive.google.com/uc?export=download&id=1GRpWx6zFHsQ_q4Wka21hV8KrcZsaBGTu" target="_blank" rel="noopener" class="pdf-btn" title="تحميل البحث PDF">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+        <polyline points="7 10 12 15 17 10"/>
+        <line x1="12" y1="15" x2="12" y2="3"/>
+      </svg>
+      <span>PDF</span>
+    </a>
+    <button id="dark-toggle" title="تبديل الوضع الداكن" aria-label="Dark mode toggle">
+    <img id="theme-icon" src="https://api.iconify.design/ph/moon-fill.svg?color=%23667eea" alt="theme" width="20" height="20">
+  </button>
+    <button class="hamburger" id="hamburger" aria-label="القائمة">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="hero">
+  <div class="hero-content">
+    <p class="hero-question">سؤال بسيط قبل ما تكمل...</p>
+    <h1 class="hero-title">
+      <span id="typewriter-text"></span><span class="typewriter-cursor"></span>
+    </h1>
+    
+    <div class="shamshon-svg">🧒</div>
+    
+    <div class="hero-stats">
+      <div class="stat-big">٤.٨ ساعة = ٧٣ يوم = ٣ سنين</div>
+      <div class="stat-label">كده يقضي المراهق متوسط وقته على السوشيال ميديا سنوياً</div>
+    </div>
+    
+    <a href="#shamshon-intro" class="cta-btn">ابدأ الرحلة مع شمشون 🚀</a>
+  </div>
+</section>
+
+<!-- بطاقة شمشون -->
+<section id="shamshon-intro">
+  <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+    <div class="section-badge">الشخصية الرئيسية</div>
+    <h2 class="section-title">تعرف على <span class="accent">شمشون</span></h2>
+    <p class="section-subtitle">الشخص اللي هنعرفه طول البحث</p>
+    
+    <div class="card reveal" style="max-width: 600px; margin: 0 auto; text-align: right;">
+      <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+        <div style="font-size: 5rem;">🧒</div>
+        <div>
+          <h3 style="font-size: 1.5rem; font-weight: 900; color: var(--primary);">شمشون</h3>
+          <p style="color: var(--text-light); font-size: 0.9rem;">طالب في تانية إعدادي • ١٥ سنة</p>
+          <p style="color: var(--text-light); font-size: 0.9rem;">ذكي، طموح</p>
+        </div>
+      </div>
+      <p style="color: var(--text-dark); line-height: 1.9; font-size: 0.95rem;">شمشون ولد عادي جداً - زيك بالظبط. كل ليلة بيقول لنفسه: <strong>"بكرة هبدأ أذاكر بجد. هبطل موبايل."</strong> يصحى الساعة ٧، أول حاجة إيده تروح للموبايل. "دقيقة واحدة بس." الدقيقة بقت نص ساعة.</p>
+      
+      <div class="remember-box" style="margin-top: 1.5rem;">
+        <div class="remember-box-title">🧒 فاكر شمشون؟</div>
+        <p style="font-size: 0.9rem; color: var(--text-dark);">شمشون مش كسلان ومش فاشل. هو واقع في فخ اتصمم بعناية من أذكى المهندسين في العالم. الفخ هدفه الوحيد: يخليك تقعد أطول وقت ممكن.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- موبايل شمشون التفاعلي -->
+<div id="phone-mockup-section">
+  <div class="phone-mockup-wrap">
+    <div class="mockup-text-side reveal">
+      <div class="section-badge" style="background:rgba(240,147,251,0.15);border-color:rgba(240,147,251,0.3);color:#f093fb;">📱 يوم شمشون الافتراضي</div>
+      <h2 class="section-title" style="color:white;margin-bottom:1rem;">هكذا يبدو<br>موبايل شمشون</h2>
+      <p style="color:#94a3b8;font-size:clamp(.82rem,1.8vw,.92rem);margin-bottom:1.5rem;line-height:1.8;">الموبايل ده مش مجرد جهاز. ده مصنع دوبامين رخيص شغّال ٢٤ ساعة. كل إشعار = نبضة. كل سكرول = فخ جديد.</p>
+      <div class="msr-row">
+        <span class="msr-icon">⏱</span>
+        <div class="msr-info"><div class="msr-label">وقت TikTok اليوم</div><div class="msr-val" id="tiktok-timer">٠:٠٠:٠٠</div></div>
+      </div>
+      <div class="msr-row">
+        <span class="msr-icon">🔔</span>
+        <div class="msr-info"><div class="msr-label">إشعارات استقبلها</div><div class="msr-val" id="notif-counter">٠</div></div>
+      </div>
+      <div class="msr-row">
+        <span class="msr-icon">📺</span>
+        <div class="msr-info"><div class="msr-label">فيديوهات شافها</div><div class="msr-val" id="video-counter">٠</div></div>
+      </div>
+      <div class="msr-row">
+        <span class="msr-icon">🧠</span>
+        <div class="msr-info"><div class="msr-label">دوبامين رخيص</div><div class="msr-val" id="dopamine-counter">٠ دفعة</div></div>
+      </div>
+      <p style="color:rgba(255,255,255,.3);font-size:.7rem;margin-top:.9rem;">* الأرقام تحاكي يوم عادي في حياة شمشون</p>
+    </div>
+
+    <div class="phone-device reveal">
+      <div class="notif-cloud" id="notif-badge" style="display:none">
+        <div class="notif-bubble" id="notif-num">١</div>
+        <div class="notif-label">إشعار جديد</div>
+      </div>
+      <div class="phone-frame">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <div class="phone-statusbar"><span>٩:٤١</span><span style="font-size:8px;letter-spacing:1px">TikTok</span><span>🔋 ٢٣٪</span></div>
+          <div class="tiktok-feed" id="tiktokFeed">
+            <div class="tiktok-video" id="tv0">
+              <div class="tv-bg tv-bg-1"></div>
+              <div class="tv-actions"><div class="tv-action"><span class="tv-action-icon">❤️</span><span class="tv-action-num">٢٨٤k</span></div><div class="tv-action"><span class="tv-action-icon">💬</span><span class="tv-action-num">١.٢k</span></div><div class="tv-action"><span class="tv-action-icon">↗️</span><span class="tv-action-num">مشاركة</span></div></div>
+              <div class="tv-content"><div class="tv-user"><div class="tv-avatar">😂</div><span class="tv-username">@funny_clips_99</span></div><div class="tv-desc">لما تقول "دقيقة واحدة بس" وترجع لقيت ساعة راحت 😭</div><div class="tv-music">🎵 شعبي ميكس ريمكس</div></div>
+            </div>
+            <div class="tiktok-video" id="tv1" style="transform:translateY(100%)">
+              <div class="tv-bg tv-bg-2"></div>
+              <div class="tv-actions"><div class="tv-action"><span class="tv-action-icon">❤️</span><span class="tv-action-num">١.٤m</span></div><div class="tv-action"><span class="tv-action-icon">💬</span><span class="tv-action-num">٤٨k</span></div><div class="tv-action"><span class="tv-action-icon">↗️</span><span class="tv-action-num">مشاركة</span></div></div>
+              <div class="tv-content"><div class="tv-user"><div class="tv-avatar">💪</div><span class="tv-username">@gym_motivation</span></div><div class="tv-desc">تحدي ٣٠ يوم! اللي يكمل هيتغير جسمه ١٨٠ درجة 💪</div><div class="tv-music">🎵 Motivational Beats</div></div>
+            </div>
+            <div class="tiktok-video" id="tv2" style="transform:translateY(100%)">
+              <div class="tv-bg tv-bg-3"></div>
+              <div class="tv-actions"><div class="tv-action"><span class="tv-action-icon">❤️</span><span class="tv-action-num">٩٢k</span></div><div class="tv-action"><span class="tv-action-icon">💬</span><span class="tv-action-num">٨٨٣</span></div><div class="tv-action"><span class="tv-action-icon">↗️</span><span class="tv-action-num">مشاركة</span></div></div>
+              <div class="tv-content"><div class="tv-user"><div class="tv-avatar">🎮</div><span class="tv-username">@gaming_pro_eg</span></div><div class="tv-desc">اللحظة دي في الماتش مش هتصدقوا 🔥</div><div class="tv-music">🎵 Epic Trap Beat</div></div>
+            </div>
+            <div class="tiktok-video" id="tv3" style="transform:translateY(100%)">
+              <div class="tv-bg tv-bg-4"></div>
+              <div class="tv-actions"><div class="tv-action"><span class="tv-action-icon">❤️</span><span class="tv-action-num">٣.٢m</span></div><div class="tv-action"><span class="tv-action-icon">💬</span><span class="tv-action-num">٢١k</span></div><div class="tv-action"><span class="tv-action-icon">↗️</span><span class="tv-action-num">مشاركة</span></div></div>
+              <div class="tv-content"><div class="tv-user"><div class="tv-avatar">🌍</div><span class="tv-username">@travel_world_hd</span></div><div class="tv-desc">مكان في مصر مش بيعرفه غير ١٪ من الناس ✈️</div><div class="tv-music">🎵 Chill Vibes Lo-fi</div></div>
+            </div>
+          </div>
+          <div class="tiktok-navbar"><span class="tn-item">🏠</span><span class="tn-item">🔍</span><span class="tn-item active" style="font-size:20px">➕</span><span class="tn-item">📬</span><span class="tn-item">👤</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- المقدمة -->
+<section id="intro">
+  <div class="section-badge reveal">المقدمة</div>
+  <h2 class="section-title reveal">المقدمة والمشكلة</h2>
+  <p class="section-subtitle reveal">إزاي وصلنا لكده؟</p>
+
+  <!-- الإحصائيات المتحركة -->
+  <div class="stats-grid">
+    <div class="stat-card reveal">
+      <div class="stat-number" data-target="4.8" data-suffix="h">0</div>
+      <div class="stat-desc">ساعة يومياً على السوشيال ميديا</div>
+    </div>
+    <div class="stat-card reveal">
+      <div class="stat-number" data-target="72" data-suffix="%">0</div>
+      <div class="stat-desc">يشوفوا الموبايل أول ما يصحوا</div>
+    </div>
+    <div class="stat-card reveal">
+      <div class="stat-number" data-target="50" data-suffix="%">0</div>
+      <div class="stat-desc">يعترفوا إنهم "مدمنين"</div>
+    </div>
+    <div class="stat-card reveal">
+      <div class="stat-number" data-target="95" data-suffix="%">0</div>
+      <div class="stat-desc">من المراهقين عندهم موبايل ذكي</div>
+    </div>
+  </div>
+
+  <!-- الرسم البياني -->
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: clamp(1rem,3vw,2rem); margin: 2.5rem 0;" class="reveal">
+    <div class="card">
+      <h3 class="card-title">📊 يومك (٢٤ ساعة)</h3>
+      <canvas id="timeChart" height="250"></canvas>
+    </div>
+    <div class="card">
+      <h3 class="card-title">📈 الإحصائيات الرئيسية</h3>
+      <canvas id="statsChart" height="250"></canvas>
+    </div>
+  </div>
+
+  <div class="shamshon-box reveal">
+    <div class="shamshon-box-title">فاكر شمشون؟</div>
+    <p>شمشون بيقضي ٤.٨ ساعة يومياً على السوشيال ميديا. ٤.٨ × ٣٦٥ = ١٧٥٢ ساعة سنوياً. يعني <strong>٧٣ يوم كامل</strong> وهو بيسكرول. لو كمّل بنفس المعدل لحد ما يبقى ١٨ سنة؟ <strong>٣ سنين من عمره</strong> قدام شاشة صغيرة.</p>
+  </div>
+
+  <!-- المشكلة -->
+  <div class="card reveal" style="margin-top: 2rem;">
+    <h3 class="card-title">🎯 المشكلة في جملة واحدة</h3>
+    <p class="card-text">الاستخدام المفرط وغير الواعي لوسائل التواصل الاجتماعي بيأثر سلباً وبشكل خطير على الصحة النفسية، الأداء الدراسي، العلاقات الاجتماعية، والصحة البدنية للمراهقين - وده مش صدفة، ده تصميم.</p>
+  </div>
+
+  <!-- الفرضية -->
+  <div class="card reveal" style="margin-top: 1.5rem; border-right: 4px solid var(--primary);">
+    <h3 class="card-title">💡 الفرضية</h3>
+    <p class="card-text">الاستخدام المفرط وغير الواعي يؤثر سلباً على الصحة النفسية، <strong>لكن</strong> الاستخدام الواعي والهادف يمكن أن يكون له آثار إيجابية. الفرق مش في التطبيق - الفرق في إزاي أنت بتستخدمه.</p>
+  </div>
+</section>
+
+<!-- الآثار السلبية -->
+<div id="negative" class="section-full">
+<div class="section-inner">
+  <div class="section-badge">الإطار النظري</div>
+  <h2 class="section-title">الآثار السلبية <span class="accent">⚠️</span></h2>
+  <p class="section-subtitle">إزاي دماغك بيتخدع وإزاي الفخ بيشتغل</p>
+
+  <div class="tabs-container">
+    <div class="tabs-nav">
+      <button class="tab-btn active" onclick="openTab(event, 'tab-dopamine')">🧠 الدوبامين</button>
+      <button class="tab-btn" onclick="openTab(event, 'tab-habit')">🔄 دائرة العادة</button>
+      <button class="tab-btn" onclick="openTab(event, 'tab-anxiety')">😰 القلق والاكتئاب</button>
+      <button class="tab-btn" onclick="openTab(event, 'tab-algo')">🤖 الخوارزميات</button>
+      <button class="tab-btn" onclick="openTab(event, 'tab-bully')">😢 التنمر</button>
+      <button class="tab-btn" onclick="openTab(event, 'tab-brain')">🧟 تعفن الدماغ</button>
+      <button class="tab-btn" onclick="openTab(event, 'tab-fomo')">😱 FOMO + الأضرار</button>
+    </div>
+
+    <!-- تاب الدوبامين -->
+    <div id="tab-dopamine" class="tab-content active">
+      <div class="card" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); color: white; margin-bottom: 1.5rem;">
+        <h3 class="card-title" style="color: #f093fb;">الدوبامين: العملة اللي بتشتري بيها سعادتك</h3>
+        <p style="color: rgba(255,255,255,0.8); line-height: 1.9;">تخيل دماغك زي موبايل. والدوبامين ده البطارية بتاعته. كل ما تعمل حاجة حلوة - تاكل، تضحك، تنجح في حاجة - دماغك بيفرز دوبامين. ده اللي بيخليك تحس بالسعادة. لكن في فرق ضخم بين الدوبامين الرخيص والغالي.</p>
+      </div>
+      <div class="dopamine-tree">
+        <div class="dop-branch">
+          <div class="dop-branch-title cheap">❌ رخيص (Cheap)</div>
+          <div class="dop-leaf"><span class="dop-leaf-icon">👍</span>لايكات على صورة - ثانية واحدة</div>
+          <div class="dop-leaf"><span class="dop-leaf-icon">💬</span>كومنت - مجهود صفر</div>
+          <div class="dop-leaf"><span class="dop-leaf-icon">📲</span>إشعار - دفعة سريعة</div>
+          <div class="dop-leaf"><span class="dop-leaf-icon">🎬</span>فيديو قصير - متعة لحظية</div>
+          <div style="margin-top: 1rem; padding: 0.7rem; background: rgba(252,129,129,0.2); border-radius: 8px; font-size: 0.82rem; color: #fc8181; font-weight: 600;">→ إدمان وملل</div>
+        </div>
+        <div class="dop-branch">
+          <div class="dop-branch-title quality">✅ غالي (Quality)</div>
+          <div class="dop-leaf"><span class="dop-leaf-icon">📚</span>تخلص مشروع - أيام شغل</div>
+          <div class="dop-leaf"><span class="dop-leaf-icon">🎯</span>تعلم مهارة جديدة - شهور</div>
+          <div class="dop-leaf"><span class="dop-leaf-icon">⚽</span>تكسب ماتش رياضة - ساعات تمرين</div>
+          <div class="dop-leaf"><span class="dop-leaf-icon">📖</span>تقرا كتاب كامل - أيام، معرفة</div>
+          <div style="margin-top: 1rem; padding: 0.7rem; background: rgba(104,211,145,0.2); border-radius: 8px; font-size: 0.82rem; color: #68d391; font-weight: 600;">→ نمو وسعادة حقيقية</div>
+        </div>
+      </div>
+      <div class="remember-box">
+        <div class="remember-box-title">🧒 فاكر شمشون؟</div>
+        <p style="font-size: 0.9rem; color: var(--text-dark);">شمشون بيدور على الدوبامين الرخيص طول الوقت. لايك، كومنت، فيديو، إشعار. التحفيز السريع بقى إدمان. الحاجات اللي تديله دوبامين غالي - المذاكرة، الرياضة، القراءة - بقت "صعبة" و"مملة". مش عشان هي صعبة فعلاً - عشان دماغه اتعود على السهل.</p>
+      </div>
+      <div class="card" style="margin-top: 1.5rem; background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); color: white;">
+        <p style="font-weight: 700; color: #f093fb; margin-bottom: 0.5rem;">📊 الأرقام تقول:</p>
+        <div class="progress-item">
+          <div class="progress-header"><span style="color: white;">المراهقين "حاسين إنهم مدمنين"</span><span style="color: #f093fb;">٥٠٪</span></div>
+          <div class="progress-bar-bg"><div class="progress-fill" data-width="50" style="background: var(--grad-accent);"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header"><span style="color: white;">بيصحوا من النوم يشيكوا إشعارات</span><span style="color: #f093fb;">٣٣٪</span></div>
+          <div class="progress-bar-bg"><div class="progress-fill" data-width="33" style="background: var(--grad-accent);"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- تاب دائرة العادة -->
+    <div id="tab-habit" class="tab-content">
+      <div class="card" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); color: white; margin-bottom: 1.5rem;">
+        <h3 class="card-title" style="color: #f093fb;">دائرة العادة: الفخ اللي بتقع فيه كل يوم</h3>
+        <p style="color: rgba(255,255,255,0.8); line-height: 1.9;">الساعة ٧ الصبح. المنبه رن. عينك لسه نص مقفولة. إيدك راحت لفين؟ للموبايل. مش عشان في حد بعتلك. مش عشان حاجة مهمة. عشان ده اللي إيدك اتعودت عليه. ودماغك بيحفظ الدائرة دي.</p>
+      </div>
+      <div class="habit-circle-wrap">
+        <div class="habit-circle">
+          <div class="hc-step">المحفز<br><small>صحيت من النوم</small></div>
+          <div class="hc-step">الروتين<br><small>مسكت الموبايل</small></div>
+          <div class="hc-step">المكافأة<br><small>دوبامين سريع</small></div>
+          <div class="hc-step">التكرار<br><small>↺ دايماً</small></div>
+          <div class="hc-center">🔄</div>
+        </div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-top: 1rem;" class="three-cols">
+        <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white;">
+          <div class="card-icon">🌅</div>
+          <div class="card-title" style="color: #f093fb; font-size: 1rem;">مثال الصبح</div>
+          <div class="card-text" style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">صحيت → موبايل جنبك → TikTok → ضيعت ٤٥ دقيقة وأنت في الفراش</div>
+        </div>
+        <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white;">
+          <div class="card-icon">📚</div>
+          <div class="card-title" style="color: #f093fb; font-size: 1rem;">مثال المذاكرة</div>
+          <div class="card-text" style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">ملل → "دقيقة واحدة" → ساعة راحت → التركيز راح</div>
+        </div>
+        <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white;">
+          <div class="card-icon">🌙</div>
+          <div class="card-title" style="color: #f093fb; font-size: 1rem;">مثال قبل النوم</div>
+          <div class="card-text" style="color: rgba(255,255,255,0.7); font-size: 0.85rem;">وحدة → "آخر check" → نمت الساعة ٢ → نوم سيئ</div>
+        </div>
+      </div>
+      <div class="remember-box" style="margin-top: 1.5rem;">
+        <div class="remember-box-title">🧒 فاكر شمشون؟</div>
+        <p style="font-size: 0.9rem; color: var(--text-dark);">شمشون كل صبح بيصحى، عينه مقفولة، إيده تمتد للموبايل تلقائياً. يفوق بعد نص ساعة يلاقي نفسه شاف ٥٠ فيديو. يقوم يجري - متأخر على المدرسة. كل يوم. نفس الدائرة. اللي عرفه من كتاب "قوة العادات" إنك مهما حصل مش هتقدر "تمحي" العادة دي من دماغك، لكن! تقدر تقطع "المحفز".</p>
+      </div>
+    </div>
+
+    <!-- تاب القلق والاكتئاب -->
+    <div id="tab-anxiety" class="tab-content">
+      <div class="card" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); color: white; margin-bottom: 1.5rem;">
+        <h3 class="card-title" style="color: #f093fb;">القلق والاكتئاب والمقارنة اللي بتقتل</h3>
+        <p style="color: rgba(255,255,255,0.8); line-height: 1.9;">كام مرة شوفت صورة حد على Instagram وحسيت إنك "متأخر"؟ أنت بتقارن "behind the scenes" بتاعك بـ "highlight reel" بتاع غيرك. يعني أنت عارف كل تفاصيل يومك الوحش، لكن بتشوف عند الناس بس اللحظات الحلوة.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;" class="two-cols">
+        <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white; text-align: center;">
+          <div style="font-size: 3rem; margin-bottom: 0.5rem;">😔</div>
+          <div style="color: #fc8181; font-weight: 700;">أنت بتشوف</div>
+          <div style="color: rgba(255,255,255,0.7); font-size: 0.88rem; margin-top: 0.5rem;">كل يومك: القلق، الفشل، اللحظات الصعبة، الحقيقة</div>
+        </div>
+        <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white; text-align: center;">
+          <div style="font-size: 3rem; margin-bottom: 0.5rem;">✨</div>
+          <div style="color: #68d391; font-weight: 700;">الناس بتعرض</div>
+          <div style="color: rgba(255,255,255,0.7); font-size: 0.88rem; margin-top: 0.5rem;">اللحظات الحلوة فقط: الصور المظبوطة، الإنجازات، السعادة "المصطنعة"</div>
+        </div>
+      </div>
+      <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white; margin-bottom: 1.5rem;">
+        <div class="progress-item">
+          <div class="progress-header"><span style="color: white;">بيقارنوا نفسهم بالآخرين</span><span style="color: #f093fb;">٧٠٪</span></div>
+          <div class="progress-bar-bg"><div class="progress-fill" data-width="70" style="background: var(--grad-accent);"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header"><span style="color: white;">٣ ساعات+ يومياً = زيادة في الاكتئاب</span><span style="color: #f093fb;">٣٥٪</span></div>
+          <div class="progress-bar-bg"><div class="progress-fill" data-width="35" style="background: var(--grad-accent);"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header"><span style="color: white;">بنات مش راضيين عن شكلهم بسبب Instagram</span><span style="color: #f093fb;">٤٠٪</span></div>
+          <div class="progress-bar-bg"><div class="progress-fill" data-width="40" style="background: var(--grad-accent);"></div></div>
+        </div>
+        <div class="progress-item">
+          <div class="progress-header"><span style="color: white;">بيحسوا بالقلق والاكتئاب بسبب السوشيال</span><span style="color: #f093fb;">٥٦٪</span></div>
+          <div class="progress-bar-bg"><div class="progress-fill" data-width="56" style="background: var(--grad-accent);"></div></div>
+        </div>
+      </div>
+      <div class="remember-box">
+        <div class="remember-box-title">🧒 فاكر شمشون؟</div>
+        <p style="font-size: 0.9rem; color: var(--text-dark);">شمشون بيفتح Instagram كل يوم. يشوف صاحبه أحمد في الجيم - جسمه مظبوط وعليها ٢٠٠ لايك. يشوف يوسف نزل صورة مع عربية أبوه الجديدة. شمشون يبص على نفسه: مذاكرش، وزنه زاد، مخرجش من البيت من أسبوع. يحس إنه فاشل. بس شمشون مش عارف إن صورة أحمد دي من أسبوعين.</p>
+      </div>
+    </div>
+
+    <!-- تاب الخوارزميات -->
+    <div id="tab-algo" class="tab-content">
+      <div class="card" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); color: white; margin-bottom: 1.5rem;">
+        <h3 class="card-title" style="color: #f093fb;">الخوارزميات: الدمية المتحركة</h3>
+        <p style="color: rgba(255,255,255,0.8); line-height: 1.9;">تفتكر إنت اللي بتختار تتفرج على إيه؟ خليني أقولك الحقيقة: لأ. فتحت TikTok. شوفت فيديو عن كورة. عجبك. الفيديو اللي بعده؟ عن كورة برضو. وبعده. وبعده. ده مش صدفة.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+        <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎰</div>
+          <div style="font-weight: 700; color: #f093fb; margin-bottom: 0.3rem;">Variable Rewards</div>
+          <div style="font-size: 0.82rem; color: rgba(255,255,255,0.7);">مش عارف الفيديو الجاي هيبقى إيه - زي ماكينة القمار</div>
+        </div>
+        <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;">∞</div>
+          <div style="font-weight: 700; color: #f093fb; margin-bottom: 0.3rem;">Infinite Scroll</div>
+          <div style="font-size: 0.82rem; color: rgba(255,255,255,0.7);">مفيش "آخر الصفحة" - محتوى بلا نهاية</div>
+        </div>
+        <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;">📊</div>
+          <div style="font-weight: 700; color: #f093fb; margin-bottom: 0.3rem;">بيتتبع كل حاجة</div>
+          <div style="font-size: 0.82rem; color: rgba(255,255,255,0.7);">كل وقفة، كل لايك، كل ثانية قضيتها</div>
+        </div>
+        <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white; text-align: center;">
+          <div style="font-size: 2rem; margin-bottom: 0.5rem;">💰</div>
+          <div style="font-weight: 700; color: #f093fb; margin-bottom: 0.3rem;">الهدف: فلوس</div>
+          <div style="font-size: 0.82rem; color: rgba(255,255,255,0.7);">وقتك = إعلانات = فلوس للشركة</div>
+        </div>
+      </div>
+      <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white;">
+        <p style="font-size: 1rem; font-weight: 700; color: #f093fb; margin-bottom: 0.5rem;">📊 TikTok بالأرقام:</p>
+        <div class="progress-item">
+          <div class="progress-header"><span style="color: white;">متوسط الوقت يومياً</span><span style="color: #f093fb;">٩٥ دقيقة</span></div>
+          <div class="progress-bar-bg"><div class="progress-fill" data-width="79" style="background: var(--grad-accent);"></div></div>
+        </div>
+        <p style="color: rgba(255,255,255,0.7); font-size: 0.88rem; margin-top: 1rem;">💡 <strong>السؤال اللي بيحرق:</strong> لو التطبيق ده مجاني، يبقى إنت مش العميل. إنت المنتج اللي بيتباع.</p>
+      </div>
+    </div>
+
+    <!-- تاب التنمر -->
+    <div id="tab-bully" class="tab-content">
+      <div class="card" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); color: white; margin-bottom: 1.5rem;">
+        <h3 class="card-title" style="color: #f093fb;">التنمر الإلكتروني: الكلمة اللي بتفضل</h3>
+        <p style="color: rgba(255,255,255,0.8); line-height: 1.9;">نادر نزل صورة. واحد كتبله كومنت وحش. مسح الصورة. بس الكلمة فضلت في دماغه. كل ما ييجي ينزل صورة تاني، يفتكر الكومنت. الكلمة راحت من الإنترنت. بس مش من دماغه.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;" class="two-cols">
+        <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white;">
+          <div style="font-weight: 700; color: #fc8181; margin-bottom: 1rem;">🏫 التنمر العادي</div>
+          <ul style="list-style: none; padding: 0;">
+            <li style="padding: 0.4rem 0; font-size: 0.88rem; color: rgba(255,255,255,0.7); border-bottom: 1px solid rgba(255,255,255,0.08);">✓ بينتهي لما تروح البيت</li>
+            <li style="padding: 0.4rem 0; font-size: 0.88rem; color: rgba(255,255,255,0.7); border-bottom: 1px solid rgba(255,255,255,0.08);">✓ في شهود ممكن يدافعوا عنك</li>
+            <li style="padding: 0.4rem 0; font-size: 0.88rem; color: rgba(255,255,255,0.7);">✓ المتنمر بيشوف وشك وتعبيرك</li>
+          </ul>
+        </div>
+        <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white;">
+          <div style="font-weight: 700; color: #f093fb; margin-bottom: 1rem;">💻 التنمر الإلكتروني</div>
+          <ul style="list-style: none; padding: 0;">
+            <li style="padding: 0.4rem 0; font-size: 0.88rem; color: rgba(255,255,255,0.7); border-bottom: 1px solid rgba(255,255,255,0.08);">⚠️ ٢٤ ساعة ٧ أيام - مفيش هروب</li>
+            <li style="padding: 0.4rem 0; font-size: 0.88rem; color: rgba(255,255,255,0.7); border-bottom: 1px solid rgba(255,255,255,0.08);">⚠️ ممكن يبقى مخفي</li>
+            <li style="padding: 0.4rem 0; font-size: 0.88rem; color: rgba(255,255,255,0.7);">⚠️ بينتشر - آلاف الناس يشوفوه</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white;">
+        <div class="progress-item">
+          <div class="progress-header"><span style="color: white;">اتعرضوا للتنمر الإلكتروني</span><span style="color: #f093fb;">٥٩٪</span></div>
+          <div class="progress-bar-bg"><div class="progress-fill" data-width="59" style="background: var(--grad-accent);"></div></div>
+        </div>
+        <p style="color: rgba(255,255,255,0.8); margin-top: 1rem; font-size: 0.9rem;">⚠️ الضحايا أكثر عرضة للاكتئاب بـ <strong style="color: #f093fb;">٢ إلى ٩ مرات</strong></p>
+      </div>
+    </div>
+
+    <!-- تاب تعفن الدماغ -->
+    <div id="tab-brain" class="tab-content">
+      <div class="card" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); color: white; margin-bottom: 1.5rem;">
+        <h3 class="card-title" style="color: #f093fb;">تعفن الدماغ - Brain Rot</h3>
+        <p style="color: rgba(255,255,255,0.8); line-height: 1.9;">دماغك اتعود على تحفيز سريع كل ١٥ ثانية - مدة الفيديو. مبقاش قادر يتحمل أي حاجة "بطيئة". قراءة كتاب؟ ممل. فيلم طويل؟ مش قادر أركز. محاضرة؟ عايز أنام. مش عيب فيك. ده اللي الشورتس عملته في دماغك.</p>
+      </div>
+      <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin-bottom: 1.5rem;">
+        <h4 style="color: white; margin-bottom: 1rem;">📉 مدة الانتباه عبر السنين:</h4>
+        <canvas id="attentionChart" height="200"></canvas>
+      </div>
+      <div class="remember-box">
+        <div class="remember-box-title">🧒 فاكر شمشون؟</div>
+        <p style="font-size: 0.9rem; color: var(--text-dark);">شمشون السنة اللي فاتت كان بيقرا كتاب في الشهر. السنة دي؟ مقدرش يخلص كتاب واحد. يفتح الكتاب، يقرا صفحة. يحس بالملل. يقفله. يفتح الموبايل. ١٠٠ فيديو في نص ساعة. المشكلة مش في الكتاب. المشكلة إن دماغه مبقاش قادر يستحمل حاجة "بطيئة".</p>
+      </div>
+    </div>
+
+    <!-- تاب FOMO + الأضرار -->
+    <div id="tab-fomo" class="tab-content">
+      <div class="card" style="background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.1); color: white; margin-bottom: 1.5rem;">
+        <h3 class="card-title" style="color: #f093fb;">FOMO + الأضرار الصحية والبدنية</h3>
+        <p style="color: rgba(255,255,255,0.8); line-height: 1.9; margin-bottom: 1rem;">FOMO = Fear Of Missing Out = الخوف من إنك فايتك حاجة. شمشون يسيب الموبايل في البيت بالغلط. طول اليوم قلقان. "أكيد في حد بعتلي." مش مركز في أي حاجة. يرجع البيت يجري على الموبايل. يفتحه. مفيش حاجة مهمة.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+        <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white; text-align: center;">
+          <div style="font-size: 2.5rem;">😟</div>
+          <div style="font-weight: 700; font-size: 1.2rem; color: #f093fb;">٦٠٪</div>
+          <div style="font-size: 0.82rem; color: rgba(255,255,255,0.7);">بيحسوا بقلق لما ما يوصلوش للموبايل</div>
+        </div>
+        <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white; text-align: center;">
+          <div style="font-size: 2.5rem;">😴</div>
+          <div style="font-weight: 700; font-size: 1.2rem; color: #f093fb;">٦٨٪</div>
+          <div style="font-size: 0.82rem; color: rgba(255,255,255,0.7);">بيستخدموا الموبايل في الفراش قبل النوم</div>
+        </div>
+        <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white; text-align: center;">
+          <div style="font-size: 2.5rem;">⏰</div>
+          <div style="font-weight: 700; font-size: 1.2rem; color: #f093fb;">-٦٠ دقيقة</div>
+          <div style="font-size: 0.82rem; color: rgba(255,255,255,0.7);">ساعة نوم ضايعة كل ليلة</div>
+        </div>
+        <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white; text-align: center;">
+          <div style="font-size: 2.5rem;">⚽</div>
+          <div style="font-weight: 700; font-size: 1.2rem; color: #f093fb;">٧٣ يوم</div>
+          <div style="font-size: 0.82rem; color: rgba(255,255,255,0.7);">كان ممكن تمشي وتتحرك وتبني جسمك</div>
+        </div>
+      </div>
+      <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white;">
+        <p style="font-weight: 700; color: #f093fb; margin-bottom: 1rem;">📊 ٤.٨ ساعة يومياً × ٣٦٥ = كان ممكن تعمل:</p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; font-size: 0.85rem; color: rgba(255,255,255,0.8);">
+          <div>🌍 تتعلم لغة جديدة (٢٠٠ ساعة)</div>
+          <div>📚 تقرا ٣٥ كتاب</div>
+          <div>💻 تتقن البرمجة</div>
+          <div>🏋️ تبني جسم رياضي</div>
+          <div>🎨 تتعلم الرسم</div>
+          <div>👨‍👩‍👧 تبني علاقات حقيقية</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- الآثار الإيجابية -->
+<section id="positive">
+  <div class="section-badge reveal">الجانب المضيء</div>
+  <h2 class="section-title reveal">الآثار <span class="accent">الإيجابية</span> ☀️</h2>
+  <p class="section-subtitle reveal">السوشيال ميديا مش شر مطلق - المشكلة في الاستخدام مش في الأداة</p>
+
+  <div class="cards-grid">
+    <div class="pos-card reveal">
+      <div class="card-icon">📚</div>
+      <h3 class="card-title">التعلم اللامحدود</h3>
+      <p class="card-text">YouTube فيه أكتر من مليار ساعة فيديو. أي موضوع تتخيله موجود. مجاني. من أفضل المدرسين في العالم. برمجة، طبخ، رسم، تصوير، لغات، عزف - كله موجود.</p>
+      <div style="margin-top: 1rem; font-size: 1.5rem; font-weight: 900; color: var(--primary);">٤٠٪</div>
+      <div style="font-size: 0.82rem; color: var(--text-light);">من المراهقين اتعلموا مهارة جديدة من YouTube</div>
+    </div>
+    <div class="pos-card reveal">
+      <div class="card-icon">💙</div>
+      <h3 class="card-title">الدعم النفسي</h3>
+      <p class="card-text">مجتمعات للتعافي من الاكتئاب، للتعامل مع القلق، لمشاركة التجارب. أنقذت حياة ناس كتير. كسرت وصمة الأمراض النفسية وخلت ناس تعرف إنها مش لوحدها.</p>
+      <div style="margin-top: 1rem; font-size: 1.5rem; font-weight: 900; color: var(--primary);">٣١٪</div>
+      <div style="font-size: 0.82rem; color: var(--text-light);">بيستخدموها للدعم النفسي</div>
+    </div>
+    <div class="pos-card reveal">
+      <div class="card-icon">🌍</div>
+      <h3 class="card-title">التواصل والإبداع</h3>
+      <p class="card-text">٦٩٪ بيستخدموها للتواصل مع العائلة والأصدقاء. جدك اللي ساكن بعيد، صاحبك اللي سافر. ومنصة تعرض فيها موهبتك وتوصل لملايين.</p>
+      <div style="margin-top: 1rem; font-size: 1.5rem; font-weight: 900; color: var(--primary);">٦٩٪</div>
+      <div style="font-size: 0.82rem; color: var(--text-light);">بيستخدموها للتواصل مع العائلة والأصدقاء</div>
+    </div>
+  </div>
+
+  <div class="shamshon-box reveal" style="margin-top: 2rem;">
+    <div class="shamshon-box-title">فاكر شمشون؟</div>
+    <p>شمشون لو بدّل ساعة TikTok بساعة تعليم على YouTube، في سنة واحدة كان يتعلم البرمجة ويعمل مشاريع. نفس التطبيقات - استخدام مختلف تماماً. الفرق مش في الأداة. الفرق فيك.</p>
+  </div>
+</section>
+
+<!-- الحلول -->
+<section id="solutions">
+  <div class="section-badge reveal">الحل العملي</div>
+  <h2 class="section-title reveal">هاك <span class="accent">الخوارزميات</span> 🔧</h2>
+  <p class="section-subtitle reveal">٥ استراتيجيات مثبتة علمياً تخليك أنت المسيطر</p>
+
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="tl-dot">١</div>
+      <div class="tl-content">
+        <div class="tl-title">🏠 غيّر البيئة</div>
+        <div class="tl-desc">القاعدة الذهبية: لو عايز تغير عادة، غيّر البيئة. مش هتقدر تقاوم الموبايل لو هو جنبك على الفراش. بس لو حطيته في غرفة تانية؟</div>
+        <div class="shamshon-box" style="font-size: 0.88rem;">
+          <div class="shamshon-box-title">فاكر شمشون؟</div>
+          <p>شمشون لو حط الموبايل في غرفة تانية، يصحى المنبه يرن، يقوم يقفله، مش هيمسك الموبايل تلقائياً. الروتين انكسر. الدائرة اتقطعت.</p>
+        </div>
+        <div class="apps-row" style="margin-top: 1rem;">
+          <div class="app-badge">🌳 Forest</div>
+          <div class="app-badge">⏱ Screen Time</div>
+          <div class="app-badge">🚫 Freedom</div>
+          <div class="app-badge">⬛ Grayscale Mode</div>
+          <div class="app-badge">✈️ Airplane Mode</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="tl-dot">٢</div>
+      <div class="tl-content">
+        <div class="tl-title">🤖 درّب الخوارزمية</div>
+        <div class="tl-desc">الخوارزمية بتديك اللي أنت بتختاره. كل مرة تدوس "Not Interested" على محتوى تافه، كل مرة تتابع حساب مفيد، أنت بتدرّب الخوارزمية.</div>
+        <ul class="checklist" id="algo-list">
+          <li onclick="toggleCheck(this)"><div class="check-box"></div><span>Unfollow كل الحسابات اللي بتخليك تحس بالسوء</span></li>
+          <li onclick="toggleCheck(this)"><div class="check-box"></div><span>Follow حسابات تعليمية وملهمة</span></li>
+          <li onclick="toggleCheck(this)"><div class="check-box"></div><span>دوس "Not Interested" على المحتوى التافه</span></li>
+          <li onclick="toggleCheck(this)"><div class="check-box"></div><span>اتفرج على الفيديوهات المفيدة لآخرها</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="tl-dot">٣</div>
+      <div class="tl-content">
+        <div class="tl-title">🔄 استبدل العادة</div>
+        <div class="tl-desc">المحفز مش هيروح. لكن تقدر تغيّر الروتين. نفس المحفز - روتين جديد - مكافأة أفضل.</div>
+        <table class="habits-table">
+          <thead><tr><th>العادة القديمة ❌</th><th>العادة الجديدة ✅</th></tr></thead>
+          <tbody>
+            <tr><td class="old">صحيت → موبايل فوراً</td><td class="new">صحيت → مية + صلاة + قراءة</td></tr>
+            <tr><td class="old">ملل → TikTok</td><td class="new">ملل → بودكاست مفيد أو مقال</td></tr>
+            <tr><td class="old">قبل النوم → Instagram</td><td class="new">قبل النوم → كتاب ورقي أو مذكرات</td></tr>
+            <tr><td class="old">فراغ → سكرولينج عشوائي</td><td class="new">فراغ → تمرين أو هواية</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="tl-dot">٤</div>
+      <div class="tl-content">
+        <div class="tl-title">🔒 القواعد الصارمة</div>
+        <div class="tl-desc">الانضباط الذاتي ضعيف. القواعد قوية. بدل ما تقول "هحاول"، قول "ممنوع".</div>
+        <ul class="checklist" id="rules-list">
+          <li onclick="toggleCheck(this)"><div class="check-box"></div><span>لا موبايل في أول ساعة من الصباح</span></li>
+          <li onclick="toggleCheck(this)"><div class="check-box"></div><span>لا موبايل في آخر ساعة قبل النوم</span></li>
+          <li onclick="toggleCheck(this)"><div class="check-box"></div><span>لا موبايل على مائدة الطعام مع العيلة</span></li>
+          <li onclick="toggleCheck(this)"><div class="check-box"></div><span>يوم كامل في الأسبوع Digital Detox</span></li>
+          <li onclick="toggleCheck(this)"><div class="check-box"></div><span>لا موبايل أثناء المذاكرة</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="tl-dot">٥</div>
+      <div class="tl-content">
+        <div class="tl-title">📈 تتبع التقدم</div>
+        <div class="tl-desc">اللي ما يتقاسش ما بيتحسنش. كل أسبوع، شوف Screen Time بتاعك. سجل الرقم. حاول تقلله ١٠٪ كل أسبوع.</div>
+        <canvas id="progressChart" height="180"></canvas>
+        <div class="shamshon-box" style="margin-top: 1rem; font-size: 0.88rem;">
+          <div class="shamshon-box-title">فاكر شمشون؟</div>
+          <p>شمشون لو اتتبع تقدمه، هيشوف النتيجة. هيحس بالإنجاز. "أنا قدرت أقلل من ٥ ساعات لـ ٣.٥ ساعة!" الإحساس ده هيحفزه يكمل. النجاح يوّلد نجاح.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- التحدي -->
+<div id="challenge" class="section-full">
+  <div class="section-inner" style="text-align: center;">
+    <div class="section-badge" style="background: rgba(240,147,251,0.15); border-color: rgba(240,147,251,0.3); color: #f093fb;">التحدي النهائي</div>
+    <h2 class="section-title" style="color: white;">تحدي <span style="color: #f093fb;">٣ أيام</span> فقط 🚀</h2>
+    <p style="color: rgba(255,255,255,0.7); margin-bottom: 2rem;">فقط ٣ أيام. هل أنت مستعد؟</p>
+    
+    <div class="days-counter">
+      <span>أكملت</span>
+      <span class="days-number" id="days-count">0</span>
+      <span>من أصل ٣ أيام</span>
+    </div>
+
+    <div class="challenge-cards">
+      <div class="chal-card" id="chal1">
+        <div class="chal-icon">🛏️</div>
+        <div class="chal-title">اليوم الأول</div>
+        <div class="chal-desc">الموبايل في غرفة تانية قبل النوم</div>
+        <div class="chal-check" onclick="toggleChallenge(1)">
+          <div class="chal-checkbox" id="chal-cb1"></div>
+          <span style="color: rgba(255,255,255,0.8); font-size: 0.88rem;">أنا عملتها!</span>
+        </div>
+      </div>
+      <div class="chal-card" id="chal2">
+        <div class="chal-icon">☀️</div>
+        <div class="chal-title">اليوم التاني</div>
+        <div class="chal-desc">مفيش موبايل في أول ساعة من الصباح</div>
+        <div class="chal-check" onclick="toggleChallenge(2)">
+          <div class="chal-checkbox" id="chal-cb2"></div>
+          <span style="color: rgba(255,255,255,0.8); font-size: 0.88rem;">أنا عملتها!</span>
+        </div>
+      </div>
+      <div class="chal-card" id="chal3">
+        <div class="chal-icon">📚</div>
+        <div class="chal-title">اليوم التالت</div>
+        <div class="chal-desc">مفيش سوشيال ميديا أثناء المذاكرة</div>
+        <div class="chal-check" onclick="toggleChallenge(3)">
+          <div class="chal-checkbox" id="chal-cb3"></div>
+          <span style="color: rgba(255,255,255,0.8); font-size: 0.88rem;">أنا عملتها!</span>
+        </div>
+      </div>
+    </div>
+
+    <button class="challenge-cta" onclick="startChallenge()">ابدأ التحدي الآن! 💪</button>
+  </div>
+</div>
+
+<!-- التحليل -->
+<section id="analysis">
+  <div class="section-badge reveal">التحليل</div>
+  <h2 class="section-title reveal">التحليل والمقارنة <span class="accent">📊</span></h2>
+  <p class="section-subtitle reveal">الفرضية اتثبتت؟</p>
+
+  <table class="compare-table reveal">
+    <thead>
+      <tr>
+        <th class="col-bad">الاستخدام العشوائي ❌</th>
+        <th class="col-good">الاستخدام الواعي ✅</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>٤.٨ ساعات يومياً بدون هدف</td><td>ساعة أو ساعتين بهدف محدد</td></tr>
+      <tr><td>سكرولينج بلا هدف - محتوى عشوائي</td><td>محتوى مفيد اخترته أنت</td></tr>
+      <tr><td>قلق، اكتئاب، تشتت</td><td>تعلم، تواصل حقيقي، إلهام</td></tr>
+      <tr><td>مقارنات مستمرة مع الآخرين</td><td>متابعة حسابات ملهمة</td></tr>
+      <tr><td>٧٣ يوم ضايعين سنوياً</td><td>وقت لحاجات حقيقية ومهمة</td></tr>
+      <tr><td>صحة نفسية سيئة وإدمان</td><td>صحة نفسية أفضل وسيطرة</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Before/After Slider -->
+  <h3 style="text-align: center; margin: 3rem 0 1rem; font-size: 1.3rem; font-weight: 700;">شمشون قبل وبعد</h3>
+  <div class="before-after-container reveal" id="baContainer">
+    <div class="ba-panel ba-before">
+      <div class="ba-label">😔 قبل</div>
+      <div class="ba-stats">
+        ٦ ساعات يومياً<br>
+        درجات منخفضة<br>
+        نوم سيئ حتى ٢ ص<br>
+        قلق واكتئاب<br>
+        علاقات ضعيفة<br>
+        وزن زايد
+      </div>
+    </div>
+    <div class="ba-panel ba-after">
+      <div class="ba-label">😊 بعد</div>
+      <div class="ba-stats">
+        ٢ ساعة واعية يومياً<br>
+        درجات ممتازة<br>
+        نوم الساعة ١٠<br>
+        هدوء وتركيز<br>
+        علاقات حقيقية<br>
+        صحة وحيوية
+      </div>
+    </div>
+    <div class="ba-divider" id="baDivider">
+      <div class="ba-handle">⇔</div>
+    </div>
+  </div>
+  <p style="text-align: center; color: var(--text-light); font-size: 0.85rem; margin-top: 0.5rem;">اسحب المؤشر لترى الفرق</p>
+</section>
+
+<!-- الرأي الشخصي -->
+<section id="personal">
+  <div class="section-badge reveal">الرأي الشخصي</div>
+  <h2 class="section-title reveal">تجربتي الشخصية <span class="accent">💬</span></h2>
+  <p class="section-subtitle reveal">أحمد - كاتب البحث</p>
+
+  <div class="personal-timeline reveal">
+    <div class="pt-item">
+      <div class="pt-icon">😰</div>
+      <div class="pt-label">البداية</div>
+      <div class="pt-text">٦ ساعات يومياً - مش عارف فيه مشكلة</div>
+    </div>
+    <div class="pt-connector">←</div>
+    <div class="pt-item">
+      <div class="pt-icon">😤</div>
+      <div class="pt-label">اليوم ١</div>
+      <div class="pt-text">صعب جداً - إيدي راحت تلقائياً</div>
+    </div>
+    <div class="pt-connector">←</div>
+    <div class="pt-item">
+      <div class="pt-icon">😌</div>
+      <div class="pt-label">اليوم ٢</div>
+      <div class="pt-text">أسهل - الصبح أهدى - نمت أحسن</div>
+    </div>
+    <div class="pt-connector">←</div>
+    <div class="pt-item">
+      <div class="pt-icon">😃</div>
+      <div class="pt-label">اليوم ٣</div>
+      <div class="pt-text">٢.٥ ساعة فقط - ذاكرت ساعتين متواصلين</div>
+    </div>
+    <div class="pt-connector">←</div>
+    <div class="pt-item">
+      <div class="pt-icon">🏆</div>
+      <div class="pt-label">بعد شهرين</div>
+      <div class="pt-text">٢-٣ ساعات - ٥ كتب - برمجة وتصميم</div>
+    </div>
+  </div>
+
+  <div class="quote-box reveal" style="max-width: 700px; margin: 2rem auto;">
+    <div class="quote-text">"أنت مش ضعيف، أنت مستهدف"</div>
+    <div class="quote-sub">لما تفهم الهجمه, هتعرف تصدها.</div>
+  </div>
+
+  <div class="card reveal" style="max-width: 700px; margin: 0 auto;">
+    <h3 class="card-title">رسالتي ليك</h3>
+    <p class="card-text" style="line-height: 2;">أنت مش لوحدك، مش ضعيف، مش فاشل. أنت واقع في فخ مصمم بعناية. لكن لما تفهم الفخ، تقدر تتحرر. التحدي بسيط: ٣ أيام. لو ما قدرتش، المشكلة أكبر - وده أول خطوة للحل. لو قدرت، هتحس بالفرق وما هتعرفش ترجع. أنا قدرت. وأنت كمان تقدر.</p>
+  </div>
+</section>
+
+<!-- اختبر نفسك -->
+<section id="quiz-section">
+  <div style="text-align: center;">
+    <div class="section-badge reveal">اختبر نفسك</div>
+    <h2 class="section-title reveal">هل أنت <span class="accent">مدمن</span>؟ 🤔</h2>
+    <p class="section-subtitle reveal">٤ أسئلة تحدد مستواك بصدق</p>
+  </div>
+
+  <div class="quiz-container reveal">
+    <div class="quiz-progress" id="quiz-progress">
+      <div class="qp-dot active" id="qp0"></div>
+      <div class="qp-dot" id="qp1"></div>
+      <div class="qp-dot" id="qp2"></div>
+      <div class="qp-dot" id="qp3"></div>
+    </div>
+
+    <div id="quiz-main">
+      <div class="quiz-question" id="q-text">س١: كام مرة حاولت تقلل استخدام الموبايل وفشلت؟</div>
+      <div class="quiz-options" id="q-options">
+        <button class="quiz-option" onclick="selectOption(0, 0)">أبداً أو مرة</button>
+        <button class="quiz-option" onclick="selectOption(0, 0)">مرتين أو ٣</button>
+        <button class="quiz-option" onclick="selectOption(0, 1)">كتير - ٥ مرات+</button>
+        <button class="quiz-option" onclick="selectOption(0, 1)">فشلت في كل مرة جربت</button>
+      </div>
+      <div class="quiz-nav">
+        <button class="quiz-btn" id="prev-btn" onclick="prevQuestion()" style="display:none">السابق</button>
+        <button class="quiz-btn primary" id="next-btn" onclick="nextQuestion()" disabled>التالي</button>
+      </div>
+    </div>
+
+    <div class="quiz-result" id="quiz-result">
+      <div class="result-emoji" id="r-emoji">🏆</div>
+      <div class="result-score" id="r-score">0/4</div>
+      <div class="result-label" id="r-label">ممتاز!</div>
+      <div class="result-text" id="r-text">أنت في حالة كويسة</div>
+      <button class="cta-btn" onclick="document.getElementById('challenge').scrollIntoView({behavior:'smooth'})">ابدأ التحدي الآن 💪</button>
+      <br><br>
+      <button class="quiz-btn" onclick="resetQuiz()">إعادة الاختبار</button>
+    </div>
+  </div>
+</section>
+
+<!-- خطة العمل -->
+<section id="action-plan">
+
+<!-- لوحة إحصاياتك الشخصية (تظهر بعد الكويز) -->
+<div id="stats-dashboard">
+  <div style="text-align:center;margin-bottom:1.5rem;">
+    <div class="section-badge">📊 إحصاياتك الشخصية</div>
+    <h2 class="section-title">لوحة بياناتك</h2>
+    <p class="section-subtitle">بناءً على إجاباتك في الاختبار</p>
+  </div>
+  <div class="dashboard-grid" id="dashboard-grid">
+    <div class="dash-card red">
+      <div class="dash-icon">⚠️</div>
+      <div class="dash-num" id="d-risk">--</div>
+      <div class="dash-lbl">مستوى الخطر</div>
+      <div class="dash-bar-wrap"><div class="dash-bar" id="db-risk"></div></div>
+    </div>
+    <div class="dash-card orange">
+      <div class="dash-icon">⏰</div>
+      <div class="dash-num" id="d-time">--</div>
+      <div class="dash-lbl">ساعات مقدّرة يومياً</div>
+      <div class="dash-bar-wrap"><div class="dash-bar" id="db-time"></div></div>
+    </div>
+    <div class="dash-card blue">
+      <div class="dash-icon">🧠</div>
+      <div class="dash-num" id="d-control">--</div>
+      <div class="dash-lbl">مستوى التحكم الذاتي</div>
+      <div class="dash-bar-wrap"><div class="dash-bar" id="db-control"></div></div>
+    </div>
+    <div class="dash-card green">
+      <div class="dash-icon">🎯</div>
+      <div class="dash-num" id="d-potential">--</div>
+      <div class="dash-lbl">إمكانية التحسن</div>
+      <div class="dash-bar-wrap"><div class="dash-bar" id="db-potential"></div></div>
+    </div>
+  </div>
+  <div class="dash-verdict">
+    <div class="dash-verdict-title" id="dv-title">التشخيص</div>
+    <div class="dash-verdict-text" id="dv-text">أكمل الاختبار أولاً</div>
+  </div>
+</div>
+  <div style="text-align: center;">
+    <div class="section-badge reveal">خطة شخصية</div>
+    <h2 class="section-title reveal">خطتك للتحكم في <span class="accent">الموبايل</span> 📋</h2>
+    <p class="section-subtitle reveal">اكتب خطتك وسجلها - وعدك لنفسك</p>
+  </div>
+
+  <div class="plan-form reveal">
+    <div class="form-group">
+      <label class="form-label">⏱ Screen Time الحالي (ساعات في اليوم)</label>
+      <input type="text" class="form-input" id="current-time" placeholder="مثال: ٥ ساعات">
+    </div>
+    <div class="form-group">
+      <label class="form-label">🎯 الهدف خلال شهر</label>
+      <input type="text" class="form-input" id="goal-time" placeholder="مثال: ٢ ساعة">
+    </div>
+    <div class="form-group">
+      <label class="form-label">🔄 العادة اللي هغيرها</label>
+      <input type="text" class="form-input" id="habit-change" placeholder="مثال: هبطل الموبايل قبل النوم">
+    </div>
+    <div class="form-group">
+      <label class="form-label">📏 القاعدة اللي هطبقها</label>
+      <input type="text" class="form-input" id="rule-apply" placeholder="مثال: لا موبايل في الصباح">
+    </div>
+    <div class="form-group">
+      <label class="form-label">📅 تاريخ البداية</label>
+      <input type="date" class="form-input" id="start-date">
+    </div>
+    <button class="save-btn" onclick="savePlan()">💾 احفظ خطتي</button>
+    <div id="plan-saved" style="display:none; margin-top: 1rem; text-align: center; color: var(--success); font-weight: 700; font-size: 1.1rem;">✅ تم حفظ خطتك! 🎉</div>
+  </div>
+</section>
+
+<!-- بطاقات المراجعة -->
+<div id="flashcards-section">
+  <div class="section-inner" style="text-align:center;">
+    <div class="section-badge" style="background:rgba(72,187,120,0.15);border-color:rgba(72,187,120,0.3);color:#48bb78;">🃏 بطاقات المراجعة</div>
+    <h2 class="section-title">Flashcards</h2>
+    <p class="section-subtitle">اضغط على البطاقة تشوف الإجابة — راجع أهم مفاهيم البحث</p>
+  </div>
+  <div class="fc-wrap">
+    <div class="fc-counter" id="fc-counter">البطاقة ١ من ٨</div>
+    <div class="fc-scene" onclick="flipCard()">
+      <div class="fc-card" id="fc-card">
+        <div class="fc-front">
+          <div class="fc-q-icon" id="fc-icon">🧠</div>
+          <div class="fc-q-text" id="fc-question">إيه هو الدوبامين وليه مهم؟</div>
+          <div class="fc-hint">👆 اضغط لتشوف الإجابة</div>
+        </div>
+        <div class="fc-back">
+          <div class="fc-a-label">✅ الإجابة</div>
+          <div class="fc-a-text" id="fc-answer">الدوبامين هو هرمون السعادة في دماغك. بيتفرز لما تعمل حاجة حلوة. في نوعين: رخيص (لايك، إشعار، فيديو قصير) وغالي (إنجاز، تعلم، رياضة). السوشيال ميديا بتستغل الدوبامين الرخيص تخليك مدمن.</div>
+        </div>
+      </div>
+    </div>
+    <div class="fc-nav">
+      <button class="fc-btn" id="fc-prev" onclick="fcMove(-1)" disabled>← السابق</button>
+      <button class="fc-btn" id="fc-flip" onclick="flipCard()" style="background:rgba(102,126,234,0.25);border-color:rgba(102,126,234,0.4);">🔄 اقلب</button>
+      <button class="fc-btn" id="fc-next" onclick="fcMove(1)">التالي →</button>
+    </div>
+    <div class="fc-dots" id="fc-dots"></div>
+  </div>
+</div>
+
+<!-- المراجع -->
+<section id="references">
+  <div class="section-badge reveal">المصادر</div>
+  <h2 class="section-title reveal">المراجع والمصادر <span class="accent">📚</span></h2>
+
+  <div class="ref-category reveal">
+    <div class="ref-cat-header" onclick="toggleRef(this)">
+      📚 الكتب <span class="arrow">▶</span>
+    </div>
+    <div class="ref-cat-body">
+      <div class="ref-item"><span>Duhigg, C. (2012). قوة العادات. Random House.</span><button class="copy-btn" onclick="copyRef(this)">نسخ</button></div>
+      <div class="ref-item"><span>Eyal, N. (2014). Hooked: How to Build Habit-Forming Products. Portfolio.</span><button class="copy-btn" onclick="copyRef(this)">نسخ</button></div>
+      <div class="ref-item"><span>Newport, C. Digital Minimalism: Choosing a Focused Life in a Noisy World. Portfolio.</span><button class="copy-btn" onclick="copyRef(this)">نسخ</button></div>
+      <div class="ref-item"><span>Alter, A. (2017). Irresistible: The Rise of Addictive Technology. Penguin Press.</span><button class="copy-btn" onclick="copyRef(this)">نسخ</button></div>
+    </div>
+  </div>
+
+  <div class="ref-category reveal">
+    <div class="ref-cat-header" onclick="toggleRef(this)">
+      🔬 الدراسات العلمية <span class="arrow">▶</span>
+    </div>
+    <div class="ref-cat-body">
+      <div class="ref-item"><span>Twenge et al. (2018). Increases in depressive symptoms and suicide rates. Clinical Psychological Science, 6(1).</span><button class="copy-btn" onclick="copyRef(this)">نسخ</button></div>
+      <div class="ref-item"><span>Primack et al. (2017). Social media and depression/anxiety symptoms. Computers in Human Behavior, 69.</span><button class="copy-btn" onclick="copyRef(this)">نسخ</button></div>
+      <div class="ref-item"><span>Hunt et al. (2018). Limiting social media decreases loneliness. Journal of Social and Clinical Psychology, 37(10).</span><button class="copy-btn" onclick="copyRef(this)">نسخ</button></div>
+      <div class="ref-item"><span>Woods & Scott (2016). Social media and poor sleep quality in adolescents. Journal of Adolescence, 51.</span><button class="copy-btn" onclick="copyRef(this)">نسخ</button></div>
+    </div>
+  </div>
+
+  <div class="ref-category reveal">
+    <div class="ref-cat-header" onclick="toggleRef(this)">
+      📊 التقارير والإحصائيات <span class="arrow">▶</span>
+    </div>
+    <div class="ref-cat-body">
+      <div class="ref-item"><span>Pew Research Center (2024). Teens, Social Media and Technology. pewresearch.org</span><button class="copy-btn" onclick="copyRef(this)">نسخ</button></div>
+      <div class="ref-item"><span>Common Sense Media (2023). The Common Sense Census: Media Use by Tweens and Teens.</span><button class="copy-btn" onclick="copyRef(this)">نسخ</button></div>
+      <div class="ref-item"><span>Royal Society for Public Health UK (2017). #StatusOfMind: Social media and young people's mental health.</span><button class="copy-btn" onclick="copyRef(this)">نسخ</button></div>
+      <div class="ref-item"><span>We Are Social & Hootsuite (2024). Digital 2024: Global Overview Report.</span><button class="copy-btn" onclick="copyRef(this)">نسخ</button></div>
+    </div>
+  </div>
+
+  <div class="ref-category reveal">
+    <div class="ref-cat-header" onclick="toggleRef(this)">
+      🏛 المنظمات الدولية <span class="arrow">▶</span>
+    </div>
+    <div class="ref-cat-body">
+      <div class="ref-item"><span>World Health Organization (WHO) (2024). Mental health of adolescents. who.int</span><button class="copy-btn" onclick="copyRef(this)">نسخ</button></div>
+      <div class="ref-item"><span>American Psychological Association (APA) (2023). Social media use and mental health. apa.org</span><button class="copy-btn" onclick="copyRef(this)">نسخ</button></div>
+      <div class="ref-item"><span>National Institute of Mental Health (NIMH) (2024). Technology and adolescent mental health. nimh.nih.gov</span><button class="copy-btn" onclick="copyRef(this)">نسخ</button></div>
+      <div class="ref-item"><span>CDC (2024). Youth Risk Behavior Survey. cdc.gov</span><button class="copy-btn" onclick="copyRef(this)">نسخ</button></div>
+    </div>
+  </div>
+
+  <div class="ref-category reveal">
+    <div class="ref-cat-header" onclick="toggleRef(this)">
+      🇪🇬 مصادر عربية <span class="arrow">▶</span>
+    </div>
+    <div class="ref-cat-body">
+      <div class="ref-item"><span>وزارة الاتصالات وتكنولوجيا المعلومات (2024). تقرير استخدام الإنترنت في مصر.</span><button class="copy-btn" onclick="copyRef(this)">نسخ</button></div>
+      <div class="ref-item"><span>الجهاز القومي لتنظيم الاتصالات (2024). إحصائيات استخدام الإنترنت والهواتف المحمولة في مصر.</span><button class="copy-btn" onclick="copyRef(this)">نسخ</button></div>
+    </div>
+  </div>
+
+  <div class="ref-category reveal">
+    <div class="ref-cat-header" onclick="toggleRef(this)">
+      🎬 مقالات ووثائقيات <span class="arrow">▶</span>
+    </div>
+    <div class="ref-cat-body">
+      <div class="ref-item"><span>Newport, C. (2016). Quit Social Media. Your Career May Depend on It. The New York Times.</span><button class="copy-btn" onclick="copyRef(this)">نسخ</button></div>
+      <div class="ref-item"><span>Orlowski, J. (Director). (2020). The Social Dilemma [Documentary]. Netflix.</span><button class="copy-btn" onclick="copyRef(this)">نسخ</button></div>
+      <div class="ref-item"><span>Instagram Internal Research (2021). Instagram's impact on teen mental health. The Wall Street Journal.</span><button class="copy-btn" onclick="copyRef(this)">نسخ</button></div>
+    </div>
+  </div>
+
+  <p style="text-align: center; color: var(--text-light); font-size: 0.82rem; margin-top: 1.5rem;">
+    ملحوظة: تم الرجوع إلى جميع المصادر خلال الفترة من يناير إلى مارس ٢٠٢٦
+  </p>
+</section>
+
+<!-- الفوتر -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-title">أثر وسائل التواصل الاجتماعي على الصحة النفسية للمراهقين</div>
+    <div class="footer-sub">
+      إعداد: أحمد كرم أحمد ياسين | الصف: الأول الإعدادي<br>
+      المدرسة: د. أحمد زويل الرسمية | العام الدراسي: ٢٠٢٥-٢٠٢٦
+    </div>
+    <div class="share-btns">
+      <button class="share-btn whatsapp" onclick="shareWhatsApp()">💬 واتساب</button>
+      <button class="share-btn twitter" onclick="shareTwitter()">🐦 تويتر</button>
+      <button class="share-btn facebook" onclick="shareFacebook()">📘 فيسبوك</button>
+      <button class="share-btn print" onclick="window.print()">🖨️ طباعة البحث</button>
+      <a href="https://drive.google.com/uc?export=download&id=1GRpWx6zFHsQ_q4Wka21hV8KrcZsaBGTu" target="_blank" rel="noopener" class="pdf-btn pdf-btn-lg share-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        تحميل البحث PDF
+      </a>
+    </div>
+    <p style="color: rgba(255,255,255,0.4); font-size: 0.8rem; margin-top: 1rem;">
+      انتهى البحث ✨ اتمنى التوفيق ليكم
+    </p>
+  </div>
+</footer>
+
+<!-- زر العودة للأعلى -->
+<button class="back-top-btn" id="backTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
+
+<script>
+const darkToggle = document.getElementById('dark-toggle');
+const themeIcon = document.getElementById('theme-icon');
+const html = document.documentElement;
+
+function applyTheme(dark) {
+  html.setAttribute('data-theme', dark ? 'dark' : 'light');
+  themeIcon.src = dark
+    ? 'https://api.iconify.design/ph/moon-fill.svg?color=%23667eea'
+    : 'https://api.iconify.design/ph/sun-fill.svg?color=%23ed8936';
+  localStorage.setItem('theme', dark ? 'dark' : 'light');
+}
+
+// تحميل الثيم المحفوظ
+const savedTheme = localStorage.getItem('theme');
+if(savedTheme) applyTheme(savedTheme === 'dark');
+
+darkToggle.addEventListener('click', () => {
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  applyTheme(!isDark);
+  // إعادة رسم الشارتات بعد تغيير الثيم
+  const tc = document.getElementById('timeChart');
+  if(tc && tc._chartjs) initCharts();
+});
+
+/* ===== Progress Bar ===== */
+window.addEventListener('scroll', () => {
+  const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('progress-bar').style.width = scrolled + '%';
+  document.getElementById('backTop').classList.toggle('visible', window.scrollY > 400);
+});
+
+/* ===== Hamburger ===== */
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('nav-links').classList.toggle('open');
+});
+
+/* ===== Typewriter ===== */
+const phrases = [
+  'متى آخر مرة قعدت ساعة بدون موبايل؟',
+  'هل أنت مسيطر... أم مسيطر عليك؟',
+  'أثر السوشيال ميديا على صحتك النفسية'
+];
+let pi = 0, ci = 0, del = false;
+const el = document.getElementById('typewriter-text');
+function typeWriter() {
+  if(!del) {
+    if(ci < phrases[pi].length) {
+      el.textContent += phrases[pi][ci++];
+      setTimeout(typeWriter, 60);
+    } else {
+      setTimeout(() => { del = true; typeWriter(); }, 2500);
+    }
+  } else {
+    if(ci > 0) {
+      el.textContent = phrases[pi].substring(0, --ci);
+      setTimeout(typeWriter, 30);
+    } else {
+      del = false;
+      pi = (pi + 1) % phrases.length;
+      setTimeout(typeWriter, 300);
+    }
+  }
+}
+typeWriter();
+
+/* ===== Scroll Reveal ===== */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      e.target.classList.add('visible');
+      if(e.target.classList.contains('progress-fill')) {
+        const w = e.target.getAttribute('data-width');
+        e.target.style.width = w + '%';
+      }
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal, .reveal-left, .progress-fill').forEach(el => observer.observe(el));
+
+/* anim-up للأقسام والكاردز */
+const animObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.anim-up, .anim-right, .stat-card, .card, .pos-card, .timeline-item').forEach(el => {
+  if(!el.classList.contains('anim-up') && !el.classList.contains('anim-right')) {
+    el.classList.add('anim-up');
+  }
+  animObs.observe(el);
+});
+
+/* ===== Counter Animation ===== */
+function animateCounter(el) {
+  const target = parseFloat(el.getAttribute('data-target'));
+  const suffix = el.getAttribute('data-suffix') || '';
+  const duration = 2000;
+  const start = performance.now();
+  const isDecimal = target % 1 !== 0;
+  
+  function update(ts) {
+    const elapsed = ts - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 3);
+    const current = target * ease;
+    el.textContent = (isDecimal ? current.toFixed(1) : Math.floor(current)) + suffix;
+    if(progress < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+
+const counterObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting && !e.target.dataset.animated) {
+      e.target.dataset.animated = true;
+      animateCounter(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+document.querySelectorAll('.stat-number[data-target]').forEach(el => counterObs.observe(el));
+
+/* ===== Charts ===== */
+const chartObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting && !e.target.dataset.drawn) {
+      e.target.dataset.drawn = true;
+      initCharts();
+    }
+  });
+}, { threshold: 0.3 });
+const chartSection = document.getElementById('intro');
+if(chartSection) chartObs.observe(chartSection);
+
+/* helper: returns chart text/grid colors based on current theme */
+function chartColors() {
+  const dark = html.getAttribute('data-theme') === 'dark';
+  return {
+    text: dark ? '#e2e8f0' : '#2d3748',
+    grid: dark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)',
+    border: dark ? '#2d3748' : '#fff'
+  };
+}
+
+/* store chart instances so we can destroy & rebuild on theme change */
+let chartTime, chartStats;
+
+function initCharts() {
+  const c = chartColors();
+  if(chartTime) chartTime.destroy();
+  if(chartStats) chartStats.destroy();
+
+  chartTime = new Chart(document.getElementById('timeChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ['نوم (٨ ساعات)', 'مدرسة (٦ ساعات)', 'سوشيال (٥ ساعات)', 'أكل ونشاط (٣ ساعات)', 'وقت حر (٢ ساعة)'],
+      datasets: [{
+        data: [8, 6, 5, 3, 2],
+        backgroundColor: ['#667eea', '#764ba2', '#f093fb', '#48bb78', '#ed8936'],
+        borderWidth: 3,
+        borderColor: c.border
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { position: 'bottom', labels: { color: c.text, font: { family: 'Cairo' }, padding: 10, boxWidth: 12 } }
+      },
+      animation: { animateRotate: true, duration: 1500 }
+    }
+  });
+
+  chartStats = new Chart(document.getElementById('statsChart'), {
+    type: 'bar',
+    data: {
+      labels: ['مدمنين', 'يفحصون صباحاً', 'قلق واكتئاب', 'تنمر إلكتروني'],
+      datasets: [{
+        label: 'النسبة المئوية',
+        data: [50, 72, 56, 59],
+        backgroundColor: ['#f56565', '#ed8936', '#667eea', '#764ba2'],
+        borderRadius: 8
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { beginAtZero: true, max: 100, ticks: { color: c.text, font: { family: 'Cairo' }, callback: v => v + '%' }, grid: { color: c.grid } },
+        x: { ticks: { color: c.text, font: { family: 'Cairo' } }, grid: { display: false } }
+      },
+      animation: { duration: 1500 }
+    }
+  });
+}
+
+// Attention Chart
+const attObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting && !e.target.dataset.drawn) {
+      e.target.dataset.drawn = true;
+      new Chart(e.target, {
+        type: 'line',
+        data: {
+          labels: ['٢٠٠٠', '٢٠١٠', '٢٠١٥', '٢٠٢٣'],
+          datasets: [{
+            label: 'مدة الانتباه (ثانية)',
+            data: [12, 10, 9, 8],
+            borderColor: '#f093fb',
+            backgroundColor: 'rgba(240,147,251,0.15)',
+            fill: true,
+            tension: 0.4,
+            pointBackgroundColor: '#f093fb',
+            pointRadius: 6
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { labels: { color: '#e2e8f0', font: { family: 'Cairo' } } },
+            annotation: {}
+          },
+          scales: {
+            y: { min: 6, max: 14, ticks: { color: '#e2e8f0', font: { family: 'Cairo' }, callback: v => v + 'ث' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+            x: { ticks: { color: '#e2e8f0', font: { family: 'Cairo' } }, grid: { display: false } }
+          },
+          animation: { duration: 2000 }
+        }
+      });
+    }
+  });
+}, { threshold: 0.3 });
+const attCanvas = document.getElementById('attentionChart');
+if(attCanvas) attObs.observe(attCanvas);
+
+// Progress Chart
+const progObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting && !e.target.dataset.drawn) {
+      e.target.dataset.drawn = true;
+      new Chart(e.target, {
+        type: 'line',
+        data: {
+          labels: ['الأسبوع ١', 'الأسبوع ٢', 'الأسبوع ٣', 'الأسبوع ٤'],
+          datasets: [{
+            label: 'ساعات الاستخدام',
+            data: [5, 4.5, 4, 3.5],
+            borderColor: '#48bb78',
+            backgroundColor: 'rgba(72,187,120,0.1)',
+            fill: true,
+            tension: 0.4,
+            pointBackgroundColor: '#48bb78',
+            pointRadius: 6
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: { legend: { labels: { color: html.getAttribute('data-theme') === 'dark' ? '#e2e8f0' : '#2d3748', font: { family: 'Cairo' } } } },
+          scales: {
+            y: { min: 2, max: 6, ticks: { color: html.getAttribute('data-theme') === 'dark' ? '#e2e8f0' : '#2d3748', font: { family: 'Cairo' }, callback: v => v + 'h' }, grid: { color: html.getAttribute('data-theme') === 'dark' ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)' } },
+            x: { ticks: { color: html.getAttribute('data-theme') === 'dark' ? '#e2e8f0' : '#2d3748', font: { family: 'Cairo' } }, grid: { display: false } }
+          },
+          animation: { duration: 1500 }
+        }
+      });
+    }
+  });
+}, { threshold: 0.3 });
+const progCanvas = document.getElementById('progressChart');
+if(progCanvas) progObs.observe(progCanvas);
+
+/* ===== Tabs ===== */
+function openTab(event, tabId) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  event.currentTarget.classList.add('active');
+  // Trigger progress bars in active tab
+  document.querySelectorAll('#' + tabId + ' .progress-fill').forEach(pf => {
+    const w = pf.getAttribute('data-width');
+    if(w) pf.style.width = w + '%';
+  });
+}
+
+/* ===== Checklist Toggle ===== */
+function toggleCheck(el) {
+  el.classList.toggle('done');
+}
+
+/* ===== Before/After Slider ===== */
+const baContainer = document.getElementById('baContainer');
+const baDivider = document.getElementById('baDivider');
+const baAfter = document.querySelector('.ba-after');
+let isDragging = false;
+
+function updateSlider(x) {
+  const rect = baContainer.getBoundingClientRect();
+  let pct = ((x - rect.left) / rect.width) * 100;
+  pct = Math.max(2, Math.min(98, pct));
+  baDivider.style.left = pct + '%';
+  // الجزء الأخضر "بعد" يبدأ من موضع السلايدر
+  baAfter.style.clipPath = `inset(0 0 0 ${pct}%)`;
+}
+
+baContainer.addEventListener('mousedown', e => { isDragging = true; updateSlider(e.clientX); });
+window.addEventListener('mousemove', e => { if(isDragging) updateSlider(e.clientX); });
+window.addEventListener('mouseup', () => isDragging = false);
+baContainer.addEventListener('touchstart', e => { isDragging = true; updateSlider(e.touches[0].clientX); }, {passive:true});
+window.addEventListener('touchmove', e => { if(isDragging) updateSlider(e.touches[0].clientX); }, {passive:true});
+window.addEventListener('touchend', () => isDragging = false);
+
+/* ===== Challenge ===== */
+let challengeDays = parseInt(localStorage.getItem('challengeDays') || '0');
+updateDaysDisplay();
+
+function toggleChallenge(n) {
+  const card = document.getElementById('chal' + n);
+  const was = card.classList.contains('checked');
+  card.classList.toggle('checked');
+  const checked = !was;
+  if(checked) challengeDays = Math.min(3, challengeDays + 1);
+  else challengeDays = Math.max(0, challengeDays - 1);
+  localStorage.setItem('challengeDays', challengeDays);
+  updateDaysDisplay();
+  if(challengeDays === 3) triggerConfetti();
+}
+
+function updateDaysDisplay() {
+  document.getElementById('days-count').textContent = challengeDays;
+}
+
+function startChallenge() {
+  document.getElementById('chal1').scrollIntoView({behavior: 'smooth'});
+  localStorage.setItem('challengeStarted', Date.now());
+}
+
+function triggerConfetti() {
+  const colors = ['#667eea', '#f093fb', '#48bb78', '#f5576c', '#ed8936', '#764ba2'];
+  for(let i = 0; i < 80; i++) {
+    const piece = document.createElement('div');
+    piece.classList.add('confetti-piece');
+    piece.style.cssText = `
+      left: ${Math.random() * 100}vw;
+      background: ${colors[Math.floor(Math.random() * colors.length)]};
+      width: ${Math.random() * 10 + 5}px;
+      height: ${Math.random() * 10 + 5}px;
+      animation-delay: ${Math.random() * 2}s;
+      animation-duration: ${Math.random() * 2 + 2}s;
+      border-radius: ${Math.random() > 0.5 ? '50%' : '0'};
+    `;
+    document.body.appendChild(piece);
+    setTimeout(() => piece.remove(), 4000);
+  }
+}
+
+/* ===== Quiz ===== */
+const questions = [
+  {
+    q: 'س١: كام مرة حاولت تقلل استخدام الموبايل وفشلت؟',
+    opts: ['أبداً أو مرة واحدة', 'مرتين أو ٣', 'كتير - ٥ مرات أو أكتر', 'فشلت في كل مرة جربت'],
+    scores: [0, 0, 1, 1]
+  },
+  {
+    q: 'س٢: بتحس بقلق أو ضيق لما تبعد عن الموبايل؟',
+    opts: ['لأ، مش بحس بحاجة', 'أحياناً بس بسيط', 'أيوه، بحس بعدم ارتياح', 'أيوه، قلق شديد وتوتر'],
+    scores: [0, 0, 1, 1]
+  },
+  {
+    q: 'س٣: الـ "دقيقة واحدة بس" كام مرة بقت ساعة أو أكتر؟',
+    opts: ['نادراً أو أبداً', 'بعض الأحيان', 'كتير جداً', 'دايماً بيحصل كده'],
+    scores: [0, 0, 1, 1]
+  },
+  {
+    q: 'س٤: السوشيال ميديا أثّرت على درجاتك أو نومك أو علاقاتك؟',
+    opts: ['لأ، مش لاحظ تأثير', 'أثّرت بس بسيط', 'أيوه، تأثير واضح', 'أيوه، تأثير كبير جداً'],
+    scores: [0, 0, 1, 1]
+  }
+];
+let currentQ = 0, quizScores = [], selectedOptIdx = -1;
+
+function selectOption(idx, score) {
+  // إزالة التحديد من كل الخيارات
+  document.querySelectorAll('#q-options .quiz-option').forEach(o => o.classList.remove('selected'));
+  // تحديد الخيار المضغوط بـ index
+  const btns = document.querySelectorAll('#q-options .quiz-option');
+  if (btns[idx]) btns[idx].classList.add('selected');
+  selectedOptIdx = idx;
+  // حفظ الـ index والـ score مع بعض
+  quizScores[currentQ] = { idx, score };
+  document.getElementById('next-btn').disabled = false;
+}
+
+function nextQuestion() {
+  if (selectedOptIdx === -1) return;
+  selectedOptIdx = -1;
+
+  if (currentQ < questions.length - 1) {
+    currentQ++;
+    loadQuestion();
+    document.getElementById('next-btn').textContent = currentQ === questions.length - 1 ? 'عرض النتيجة' : 'التالي';
+    document.getElementById('prev-btn').style.display = 'block';
+  } else {
+    doShowResult();
+  }
+}
+
+function prevQuestion() {
+  if (currentQ > 0) {
+    currentQ--;
+    loadQuestion();
+    if (currentQ === 0) document.getElementById('prev-btn').style.display = 'none';
+    document.getElementById('next-btn').textContent = currentQ === questions.length - 1 ? 'عرض النتيجة' : 'التالي';
+    document.getElementById('next-btn').disabled = false;
+    selectedOptIdx = quizScores[currentQ] ? quizScores[currentQ].idx : -1;
+  }
+}
+
+function loadQuestion() {
+  const q = questions[currentQ];
+  document.getElementById('q-text').textContent = q.q;
+  const optsEl = document.getElementById('q-options');
+  optsEl.innerHTML = '';
+  const savedIdx = quizScores[currentQ] ? quizScores[currentQ].idx : -1;
+  q.opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    // تحديد الخيار المحفوظ بالـ index الدقيق فقط
+    btn.className = 'quiz-option' + (savedIdx === i ? ' selected' : '');
+    btn.textContent = opt;
+    btn.onclick = () => selectOption(i, q.scores[i]);
+    optsEl.appendChild(btn);
+  });
+  document.querySelectorAll('.qp-dot').forEach((d, i) => {
+    d.classList.toggle('done',   i < currentQ);
+    d.classList.toggle('active', i === currentQ);
+  });
+  document.getElementById('next-btn').disabled = quizScores[currentQ] === undefined;
+  selectedOptIdx = savedIdx;
+}
+
+function doShowResult() {
+  // حساب المجموع من الـ score المحفوظ في كل خيار
+  const total = quizScores.reduce((a, b) => a + (b ? b.score : 0), 0);
+  document.getElementById('quiz-main').style.display = 'none';
+  const res = document.getElementById('quiz-result');
+  res.style.display = 'block';
+  document.getElementById('r-score').textContent = total + '/4';
+
+  const results = [
+    { emoji: '🏆', label: 'ممتاز! مسيطر',       text: 'أنت بتستخدم السوشيال ميديا بوعي. فاصل!' },
+    { emoji: '⚠️', label: 'حذر! في مشكلة',      text: 'في علامات تدل إن في مشكلة. ابدأ التحدي!' },
+    { emoji: '🚨', label: 'خطر! محتاج تتحرك',   text: 'الإدمان حقيقي. ابدأ فوراً واطلب مساعدة!' }
+  ];
+  const idx = total === 0 ? 0 : total <= 2 ? 1 : 2;
+  document.getElementById('r-emoji').textContent = results[idx].emoji;
+  document.getElementById('r-label').textContent = results[idx].label;
+  document.getElementById('r-text').textContent  = results[idx].text;
+  document.querySelectorAll('.qp-dot').forEach(d => d.classList.add('done'));
+
+  // عرض الـ dashboard
+  setTimeout(() => showDashboard(total), 600);
+}
+
+function resetQuiz() {
+  currentQ = 0; quizScores = []; selectedOptIdx = -1;
+  document.getElementById('quiz-main').style.display   = 'block';
+  document.getElementById('quiz-result').style.display = 'none';
+  document.getElementById('prev-btn').style.display    = 'none';
+  document.getElementById('next-btn').textContent      = 'التالي';
+  document.getElementById('next-btn').disabled         = true;
+  // إخفاء الـ dashboard عند الإعادة
+  const dash = document.getElementById('stats-dashboard');
+  if (dash) dash.classList.remove('visible');
+  loadQuestion();
+}
+
+/* ===== Action Plan ===== */
+window.addEventListener('load', () => {
+  const plan = JSON.parse(localStorage.getItem('actionPlan') || '{}');
+  if(plan.currentTime) document.getElementById('current-time').value = plan.currentTime;
+  if(plan.goalTime) document.getElementById('goal-time').value = plan.goalTime;
+  if(plan.habitChange) document.getElementById('habit-change').value = plan.habitChange;
+  if(plan.ruleApply) document.getElementById('rule-apply').value = plan.ruleApply;
+  if(plan.startDate) document.getElementById('start-date').value = plan.startDate;
+});
+
+function savePlan() {
+  const plan = {
+    currentTime: document.getElementById('current-time').value,
+    goalTime: document.getElementById('goal-time').value,
+    habitChange: document.getElementById('habit-change').value,
+    ruleApply: document.getElementById('rule-apply').value,
+    startDate: document.getElementById('start-date').value
+  };
+  localStorage.setItem('actionPlan', JSON.stringify(plan));
+  document.getElementById('plan-saved').style.display = 'block';
+  setTimeout(() => document.getElementById('plan-saved').style.display = 'none', 3000);
+}
+
+/* ===== References ===== */
+function toggleRef(header) {
+  header.classList.toggle('open');
+  const body = header.nextElementSibling;
+  body.classList.toggle('open');
+}
+
+function copyRef(btn) {
+  const text = btn.previousElementSibling.textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '✓';
+    setTimeout(() => btn.textContent = 'نسخ', 2000);
+  });
+}
+
+/* ===== Share ===== */
+const shareText = 'بحث رائع عن أثر السوشيال ميديا على الصحة النفسية للمراهقين - مع شمشون!';
+const shareUrl = window.location.href;
+
+function shareWhatsApp() { window.open('https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + shareUrl)); }
+function shareTwitter() { window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(shareUrl)); }
+function shareFacebook() { window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl)); }
+
+/* ===== Responsive 2-col fix ===== */
+function fixCols() {
+  document.querySelectorAll('.two-cols').forEach(el => {
+    if(window.innerWidth < 640) el.style.gridTemplateColumns = '1fr';
+    else el.style.gridTemplateColumns = '1fr 1fr';
+  });
+  document.querySelectorAll('.three-cols').forEach(el => {
+    if(window.innerWidth < 640) el.style.gridTemplateColumns = '1fr';
+    else if(window.innerWidth < 900) el.style.gridTemplateColumns = '1fr 1fr';
+    else el.style.gridTemplateColumns = '1fr 1fr 1fr';
+  });
+}
+window.addEventListener('resize', fixCols);
+fixCols();
+
+// Load challenge state from localStorage
+[1,2,3].forEach(n => {
+  if(localStorage.getItem('chal' + n)) {
+    document.getElementById('chal' + n).classList.add('checked');
+  }
+});
+
+// Initial progress bars in active tab
+document.querySelectorAll('#tab-dopamine .progress-fill').forEach(pf => {
+  const w = pf.getAttribute('data-width');
+  if(w) setTimeout(() => pf.style.width = w + '%', 500);
+});
+
+/* ============================================================
+   FEATURE 1: Phone Mockup — TikTok Auto-Scroll + Live Counters
+   ============================================================ */
+(function() {
+  let curVid = 0, totalVids = 4;
+  let notifCount = 0, videoCount = 0, dopCount = 0;
+  let seconds = 0;
+  const vids = [0,1,2,3].map(i => document.getElementById('tv'+i));
+  if (!vids[0]) return;
+
+  // Arabic digits
+  function toAr(n) {
+    return String(n).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
+  }
+  function fmtTime(s) {
+    const h = Math.floor(s/3600), m = Math.floor((s%3600)/60), ss = s%60;
+    return toAr(h)+':'+String(m).padStart(2,'0').replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d])+':'+String(ss).padStart(2,'0').replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]);
+  }
+
+  // Auto scroll every 4s
+  function scrollToNext() {
+    const next = (curVid + 1) % totalVids;
+    vids[curVid].style.transform = 'translateY(-100%)';
+    vids[next].style.transform   = 'translateY(0)';
+    // reset previous prev-prev
+    const prev = (curVid - 1 + totalVids) % totalVids;
+    setTimeout(() => { vids[prev].style.transform = 'translateY(100%)'; vids[prev].style.transition = 'none'; setTimeout(() => vids[prev].style.transition = '', 50); }, 600);
+    curVid = next;
+    videoCount++;
+    dopCount += 2;
+    document.getElementById('video-counter').textContent = toAr(videoCount);
+    document.getElementById('dopamine-counter').textContent = toAr(dopCount) + ' دفعة';
+  }
+
+  // Notification every 7s
+  function fireNotif() {
+    notifCount++;
+    dopCount++;
+    const badge = document.getElementById('notif-badge');
+    const num   = document.getElementById('notif-num');
+    badge.style.display = 'block';
+    num.textContent = toAr(notifCount);
+    // re-trigger animation
+    num.style.animation = 'none';
+    void num.offsetWidth;
+    num.style.animation = 'notif-pop .8s cubic-bezier(.4,0,.2,1) both';
+    document.getElementById('notif-counter').textContent = toAr(notifCount);
+    document.getElementById('dopamine-counter').textContent = toAr(dopCount) + ' دفعة';
+    // hide after 3s
+    setTimeout(() => { badge.style.display = 'none'; }, 3000);
+  }
+
+  // Ticker every second
+  const mockupSection = document.getElementById('phone-mockup-section');
+  let mockupStarted = false;
+  const mockupObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting && !mockupStarted) {
+        mockupStarted = true;
+        setInterval(() => {
+          seconds++;
+          document.getElementById('tiktok-timer').textContent = fmtTime(seconds);
+        }, 1000);
+        setInterval(scrollToNext, 4000);
+        setInterval(fireNotif, 7000);
+      }
+    });
+  }, { threshold: 0.3 });
+  if (mockupSection) mockupObs.observe(mockupSection);
+})();
+
+/* ============================================================
+   FEATURE 2: Personal Stats Dashboard (يظهر بعد الكويز)
+   ============================================================ */
+function showDashboard(totalScore) {
+  const dash = document.getElementById('stats-dashboard');
+  if (!dash) return;
+  dash.classList.add('visible');
+  dash.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  // حساب القيم بناءً على النتيجة
+  const pct = (totalScore / 4) * 100;
+  const riskLabels    = ['منخفض','متوسط','عالٍ','خطر'];
+  const riskLabel     = riskLabels[totalScore] || 'خطر';
+  const riskPct       = [20,45,72,95][totalScore] || 95;
+  const estHours      = [2,3.5,5,7][totalScore] || 7;
+  const controlPct    = [85,55,30,10][totalScore] || 10;
+  const potentialPct  = [60,75,90,98][totalScore] || 98;
+  const verdicts = [
+    { t:'🏆 أنت في أمان!', p:'تحكمك في السوشيال ميديا كويس. حافظ عليه واستمر في الاستخدام الواعي.' },
+    { t:'⚠️ تحذير مبكر', p:'في بدايات إدمان. ابدأ تحدي الـ ٣ أيام دلوقتي قبل ما الأمور تتعقد.' },
+    { t:'🚨 خطر حقيقي', p:'أنت في دايرة إدمان واضحة. محتاج تطبق الاستراتيجيات الخمسة فوراً.' },
+    { t:'🆘 تحتاج مساعدة', p:'الإدمان وصل لمرحلة متقدمة. ابدأ بالتحدي وتكلم مع حد قريب منك.' }
+  ];
+  const v = verdicts[totalScore] || verdicts[3];
+
+  function toAr(n){ return String(n).replace(/\d/g,d=>'٠١٢٣٤٥٦٧٨٩'[d]); }
+
+  document.getElementById('d-risk').textContent     = riskLabel;
+  document.getElementById('d-time').textContent     = toAr(estHours) + ' ساعة';
+  document.getElementById('d-control').textContent  = toAr(controlPct) + '٪';
+  document.getElementById('d-potential').textContent= toAr(potentialPct) + '٪';
+  document.getElementById('dv-title').textContent   = v.t;
+  document.getElementById('dv-text').textContent    = v.p;
+
+  // Animate bars after paint
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      document.getElementById('db-risk').style.width     = riskPct + '%';
+      document.getElementById('db-time').style.width     = (estHours/7*100) + '%';
+      document.getElementById('db-control').style.width  = controlPct + '%';
+      document.getElementById('db-potential').style.width= potentialPct + '%';
+    }, 200);
+  });
+}
+
+/* ============================================================
+   FEATURE 3: Flashcards
+   ============================================================ */
+const fcCards = [
+  { icon:'🧠', q:'إيه هو الدوبامين وليه مهم؟', a:'الدوبامين هو هرمون السعادة في دماغك. في نوعين: رخيص (لايك، إشعار، فيديو قصير) وغالي (إنجاز، تعلم، رياضة). السوشيال ميديا بتستغل الدوبامين الرخيص تخليك مدمن.' },
+  { icon:'🔄', q:'إيه هي دائرة العادة وإزاي بتشتغل؟', a:'دائرة العادة = محفز ← روتين ← مكافأة ← تكرار. الصحيان = محفز، مسك الموبايل = روتين، إشعارات = مكافأة. مش ممكن تمحي العادة، بس ممكن تغير الروتين بتغيير المحفز.' },
+  { icon:'🤖', q:'إيه هو الـ Variable Rewards وليه خطير؟', a:'المكافأة المتغيرة = مش عارف الفيديو الجاي هيبقى إيه. زي ماكينة القمار بالظبط. ده السبب إنك مش قادر تبطل تسكرول — دماغك عايز يعرف "اللي بعده".' },
+  { icon:'😰', q:'إيه هو الـ FOMO وإزاي السوشيال بتستغله؟', a:'FOMO = Fear Of Missing Out = الخوف من إنك فايتك حاجة. ٦٠٪ من المراهقين بيحسوا بقلق لما مش معاهم موبايل. الإشعار الأحمر مصمم خصيصاً يحفز الـ FOMO.' },
+  { icon:'🧟', q:'إيه هو الـ Brain Rot وكيف تعرف إنك عندك؟', a:'Brain Rot = دماغك اتعود على تحفيز سريع كل ١٥ ثانية. علامته: مش قادر تقرا كتاب، مش قادر تركز في فيلم، دايماً محتاج تشيك الموبايل. مدة الانتباه نزلت من ١٢ ثانية لـ ٨ ثواني.' },
+  { icon:'⚖️', q:'إيه الفرق بين الاستخدام الواعي والعشوائي؟', a:'العشوائي: سكرولينج بلا هدف، مقارنات، إدمان، ٧٣ يوم ضايعين سنوياً. الواعي: وقت محدد بهدف واضح، محتوى مفيد، قواعد صارمة، نتيجة = تعلم وتحكم.' },
+  { icon:'🌱', q:'إيه هي أهم ٥ استراتيجيات للتحكم؟', a:'١- غيّر البيئة (الموبايل بعيد). ٢- درّب الخوارزمية (Not Interested). ٣- استبدل العادة (نفس المحفز، روتين جديد). ٤- قواعد صارمة (لا موبايل أول/آخر ساعة). ٥- تتبع التقدم (Screen Time أسبوعياً).' },
+  { icon:'🏆', q:'ليه "أنت مش ضعيف، أنت مستهدف"؟', a:'أذكى المهندسين وعلماء النفس صمموا التطبيقات دي تخليك مدمن. مش ضعف إرادة — ده هندسة. لما تفهم التصميم، تقدر تصده. الوعي أول خطوة للتحرر.' }
+];
+let fcIdx = 0, fcFlipped = false;
+
+function buildFcDots() {
+  const wrap = document.getElementById('fc-dots');
+  if (!wrap) return;
+  wrap.innerHTML = '';
+  fcCards.forEach((_, i) => {
+    const d = document.createElement('div');
+    d.className = 'fc-dot' + (i < fcIdx ? ' done' : i === fcIdx ? ' curr' : '');
+    wrap.appendChild(d);
+  });
+}
+
+function loadFcCard() {
+  const c = fcCards[fcIdx];
+  document.getElementById('fc-icon').textContent    = c.icon;
+  document.getElementById('fc-question').textContent = c.q;
+  document.getElementById('fc-answer').textContent   = c.a;
+  document.getElementById('fc-counter').textContent  = 'البطاقة ' + (fcIdx+1) + ' من ' + fcCards.length;
+  document.getElementById('fc-prev').disabled = fcIdx === 0;
+  document.getElementById('fc-next').disabled = fcIdx === fcCards.length - 1;
+  const card = document.getElementById('fc-card');
+  if (fcFlipped) { card.classList.remove('flipped'); fcFlipped = false; }
+  buildFcDots();
+}
+
+function flipCard() {
+  const card = document.getElementById('fc-card');
+  fcFlipped = !fcFlipped;
+  card.classList.toggle('flipped', fcFlipped);
+}
+
+function fcMove(dir) {
+  fcIdx = Math.max(0, Math.min(fcCards.length - 1, fcIdx + dir));
+  fcFlipped = false;
+  loadFcCard();
+}
+
+// Init flashcards
+if (document.getElementById('fc-card')) loadFcCard();
+</script>
+</body>
+</html>
