@@ -300,13 +300,7 @@ nav {
 .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(102,126,234,0.5); }
 
 /* ===== أقسام عامة ===== */
-section {
-  padding: 5rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.section-full { max-width: 100%; padding: 5rem 0; }
-.section-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+.section-inner { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1rem,4vw,2rem); }
 
 .section-title {
   font-size: clamp(1.5rem, 4vw, 2.5rem);
@@ -1166,18 +1160,20 @@ footer {
 .dop-leaf:last-child { border: none; }
 .dop-leaf-icon { font-size: 1rem; }
 
-/* ===== Responsive — fluid لكل الأحجام ===== */
+/* ===== Layout Responsive ===== */
 section {
-  padding: clamp(2rem, 6vw, 5rem) clamp(1rem, 4vw, 2rem);
+  padding: clamp(2.5rem, 6vw, 5rem) clamp(1rem, 4vw, 2rem);
   max-width: 1200px;
   margin: 0 auto;
+  overflow-x: hidden;
 }
-.section-full { max-width: 100%; padding: clamp(2rem,6vw,5rem) 0; }
+.section-full { max-width: 100%; padding: clamp(2.5rem,6vw,5rem) 0; overflow-x: hidden; }
 .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1rem,4vw,2rem); }
 
 /* Tablet */
 @media(max-width: 900px) {
   .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .cards-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* Mobile */
@@ -1194,13 +1190,13 @@ section {
   .ba-label { font-size: clamp(0.9rem, 3vw, 1.2rem); }
   .ba-stats { font-size: clamp(0.65rem, 1.8vw, 0.82rem); }
   .nav-logo { font-size: 0.82rem; }
+  .dopamine-tree { flex-direction: column; align-items: center; }
 }
 
 /* Small mobile */
 @media(max-width: 400px) {
   .stats-grid { grid-template-columns: 1fr; }
   .tab-btn { font-size: 0.7rem; padding: 0.3rem 0.6rem; }
-  .dopamine-tree { flex-direction: column; align-items: center; }
 }
 
 /* ===== Fluid grid helpers (تستبدل الـ JS fixCols) ===== */
@@ -1469,7 +1465,7 @@ section {
     
     <div class="hero-stats">
       <div class="stat-big">٤.٨ ساعة = ٧٣ يوم = ٣ سنين</div>
-      <div class="stat-label">كده يقضي المراهق متوسط وقته على السوشيال ميديا سنوياً</div>
+      <div class="stat-label">هكذا يقضي المراهق متوسط وقته على السوشيال ميديا سنوياً</div>
     </div>
     
     <a href="#shamshon-intro" class="cta-btn">ابدأ الرحلة مع شمشون 🚀</a>
@@ -1481,7 +1477,7 @@ section {
   <div style="max-width: 800px; margin: 0 auto; text-align: center;">
     <div class="section-badge">الشخصية الرئيسية</div>
     <h2 class="section-title">تعرف على <span class="accent">شمشون</span></h2>
-    <p class="section-subtitle">الشخص اللي هنعرفه طول البحث</p>
+    <p class="section-subtitle">الشخص اللي سنتبعه طول البحث</p>
     
     <div class="card reveal" style="max-width: 600px; margin: 0 auto; text-align: right;">
       <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
@@ -1489,7 +1485,7 @@ section {
         <div>
           <h3 style="font-size: 1.5rem; font-weight: 900; color: var(--primary);">شمشون</h3>
           <p style="color: var(--text-light); font-size: 0.9rem;">طالب في تانية إعدادي • ١٥ سنة</p>
-          <p style="color: var(--text-light); font-size: 0.9rem;">ذكي، طموح</p>
+          <p style="color: var(--text-light); font-size: 0.9rem;">ذكي، طموح، عايز يبقى مهندس</p>
         </div>
       </div>
       <p style="color: var(--text-dark); line-height: 1.9; font-size: 0.95rem;">شمشون ولد عادي جداً - زيك بالظبط. كل ليلة بيقول لنفسه: <strong>"بكرة هبدأ أذاكر بجد. هبطل موبايل."</strong> يصحى الساعة ٧، أول حاجة إيده تروح للموبايل. "دقيقة واحدة بس." الدقيقة بقت نص ساعة.</p>
@@ -1580,7 +1576,7 @@ section {
     </div>
     <div class="stat-card reveal">
       <div class="stat-number" data-target="72" data-suffix="%">0</div>
-      <div class="stat-desc">يشوفوا الموبايل أول ما يصحوا</div>
+      <div class="stat-desc">يفحصوا الموبايل أول ما يصحوا</div>
     </div>
     <div class="stat-card reveal">
       <div class="stat-number" data-target="50" data-suffix="%">0</div>
@@ -2005,7 +2001,9 @@ section {
       <div class="tl-content">
         <div class="tl-title">📈 تتبع التقدم</div>
         <div class="tl-desc">اللي ما يتقاسش ما بيتحسنش. كل أسبوع، شوف Screen Time بتاعك. سجل الرقم. حاول تقلله ١٠٪ كل أسبوع.</div>
-        <canvas id="progressChart" height="180"></canvas>
+        <div style="position:relative; width:100%; height:200px; margin-top:1rem;">
+          <canvas id="progressChart"></canvas>
+        </div>
         <div class="shamshon-box" style="margin-top: 1rem; font-size: 0.88rem;">
           <div class="shamshon-box-title">فاكر شمشون؟</div>
           <p>شمشون لو اتتبع تقدمه، هيشوف النتيجة. هيحس بالإنجاز. "أنا قدرت أقلل من ٥ ساعات لـ ٣.٥ ساعة!" الإحساس ده هيحفزه يكمل. النجاح يوّلد نجاح.</p>
@@ -2121,7 +2119,7 @@ section {
 <section id="personal">
   <div class="section-badge reveal">الرأي الشخصي</div>
   <h2 class="section-title reveal">تجربتي الشخصية <span class="accent">💬</span></h2>
-  <p class="section-subtitle reveal">أحمد - كاتب البحث</p>
+  <p class="section-subtitle reveal">أحمد كرم - كاتب البحث</p>
 
   <div class="personal-timeline reveal">
     <div class="pt-item">
@@ -2157,7 +2155,7 @@ section {
 
   <div class="quote-box reveal" style="max-width: 700px; margin: 2rem auto;">
     <div class="quote-text">"أنت مش ضعيف، أنت مستهدف"</div>
-    <div class="quote-sub">لما تفهم الهجمه, هتعرف تصدها.</div>
+    <div class="quote-sub">لما فهمت اللعبة، بقيت أعرف ألعبها.</div>
   </div>
 
   <div class="card reveal" style="max-width: 700px; margin: 0 auto;">
@@ -2277,7 +2275,7 @@ section {
       <input type="date" class="form-input" id="start-date">
     </div>
     <button class="save-btn" onclick="savePlan()">💾 احفظ خطتي</button>
-    <div id="plan-saved" style="display:none; margin-top: 1rem; text-align: center; color: var(--success); font-weight: 700; font-size: 1.1rem;">✅ تم حفظ خطتك! 🎉</div>
+    <div id="plan-saved" style="display:none; margin-top: 1rem; text-align: center; color: var(--success); font-weight: 700; font-size: 1.1rem;">✅ تم حفظ خطتك! وفقك الله 🎉</div>
   </div>
 </section>
 
@@ -2414,7 +2412,7 @@ section {
       </a>
     </div>
     <p style="color: rgba(255,255,255,0.4); font-size: 0.8rem; margin-top: 1rem;">
-      انتهى البحث ✨ اتمنى التوفيق ليكم
+      انتهى البحث ✨ اتمنى التوفيق ليكم في حياتكم
     </p>
   </div>
 </footer>
@@ -2678,6 +2676,7 @@ const progObs = new IntersectionObserver((entries) => {
         },
         options: {
           responsive: true,
+          maintainAspectRatio: false,
           plugins: { legend: { labels: { color: html.getAttribute('data-theme') === 'dark' ? '#e2e8f0' : '#2d3748', font: { family: 'Cairo' } } } },
           scales: {
             y: { min: 2, max: 6, ticks: { color: html.getAttribute('data-theme') === 'dark' ? '#e2e8f0' : '#2d3748', font: { family: 'Cairo' }, callback: v => v + 'h' }, grid: { color: html.getAttribute('data-theme') === 'dark' ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)' } },
