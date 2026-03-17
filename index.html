@@ -39,36 +39,31 @@
   --danger: #f56565;
   --warning: #ed8936;
   --dark: #1a202c;
-  --light: #f7fafc;
-  --text-dark: #2d3748;
-  --text-light: #cbd5e0;
-  --card-bg: #ffffff;
-  --body-bg: #f7fafc;
-  --nav-bg: rgba(255,255,255,0.95);
-  --border: #e2e8f0;
-  --shadow: 0 4px 20px rgba(0,0,0,0.08);
-  --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
+  --light: #2d3748;
+  --text-dark: #e2e8f0;
+  --text-light: #a0aec0;
+  --card-bg: #2d3748;
+  --body-bg: #1a202c;
+  --nav-bg: rgba(26,32,44,0.97);
+  --border: #4a5568;
+  --shadow: 0 4px 20px rgba(0,0,0,0.3);
+  --shadow-lg: 0 10px 40px rgba(0,0,0,0.4);
   --grad: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --grad-accent: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
   --radius: 16px;
   --font: 'Cairo', 'Tajawal', sans-serif;
 }
 
-[data-theme="dark"] {
-  --card-bg: #2d3748;
-  --body-bg: #1a202c;
-  --nav-bg: rgba(26,32,44,0.97);
-  --border: #4a5568;
-  --text-dark: #e2e8f0;
-  --text-light: #a0aec0;
-  --light: #2d3748;
-  --shadow: 0 4px 20px rgba(0,0,0,0.3);
-  --shadow-lg: 0 10px 40px rgba(0,0,0,0.4);
-}
-
 /* ===== إعادة الضبط ===== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  /* font-size base للـ rem */
+  font-size: 16px;
+}
+
 body {
   font-family: var(--font);
   background: var(--body-bg);
@@ -76,74 +71,38 @@ body {
   line-height: 1.8;
   transition: background 0.3s, color 0.3s;
   overflow-x: hidden;
+  /* منع أي horizontal scroll */
+  max-width: 100%;
+  width: 100%;
 }
-a { text-decoration: none; color: inherit; }
-img { max-width: 100%; }
-ul { list-style: none; }
+
+/* Typography fluid */
+p, li, td, th, label, div {
+  font-size: clamp(0.88rem, 1.5vw + 0.5rem, 1rem);
+  line-height: 1.8;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+a  { text-decoration: none; color: inherit; }
+img { max-width: 100%; height: auto; display: block; }
+ul  { list-style: none; }
 
 /* ===== شريط التقدم ===== */
 #progress-bar {
   position: fixed;
-  top: 0; right: 0;
+  top: 0; right: 0; left: 0;
   height: 3px;
   background: var(--grad);
   z-index: 9999;
   width: 0%;
   transition: width 0.1s;
+  transform-origin: right;
 }
 
 /* ===== النافبار ===== */
-nav {
-  position: fixed;
-  top: 3px;
-  width: 100%;
-  background: var(--nav-bg);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
-  z-index: 1000;
-  padding: 0 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 64px;
-  transition: background 0.3s;
-}
-.nav-logo {
-  font-size: 1.1rem;
-  font-weight: 900;
-  background: var(--grad);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  white-space: nowrap;
-}
-.nav-links {
-  display: flex;
-  gap: 0.3rem;
-  align-items: center;
-}
-.nav-links a {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--text-dark);
-  padding: 0.35rem 0.7rem;
-  border-radius: 8px;
-  transition: all 0.2s;
-  white-space: nowrap;
-}
-.nav-links a:hover { background: var(--primary); color: white; }
-.nav-actions { display: flex; gap: 0.5rem; align-items: center; }
-#dark-toggle {
-  background: var(--border);
-  border: none;
-  border-radius: 50%;
-  width: 38px; height: 38px;
-  cursor: pointer;
-  font-size: 1.1rem;
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.2s;
-}
-#dark-toggle:hover { background: var(--primary); color: white; }
+nav { position: fixed; top: 3px; left: 0; right: 0; height: 64px; background: var(--nav-bg); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 1000; padding: 0 clamp(1rem, 3vw, 1.5rem); display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; transition: background 0.3s; } .nav-logo { font-size: clamp(0.78rem, 1.5vw, 1rem); font-weight: 900; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; white-space: nowrap; flex-shrink: 0; } .nav-links { display: flex; gap: 0.2rem; align-items: center; flex-wrap: nowrap; overflow: hidden; } .nav-links a { font-size: clamp(0.7rem, 1.1vw, 0.82rem); font-weight: 600; color: var(--text-dark); padding: 0.3rem 0.55rem; border-radius: 8px; transition: all 0.2s; white-space: nowrap; } .nav-links a:hover { background: var(--primary); color: white; } .nav-actions { display: flex; gap: 0.4rem; align-items: center; flex-shrink: 0; }
+
 .hamburger {
   display: none;
   background: none;
@@ -151,11 +110,12 @@ nav {
   cursor: pointer;
   flex-direction: column;
   gap: 5px;
-  padding: 5px;
+  padding: 6px;
+  flex-shrink: 0;
 }
 .hamburger span {
   display: block;
-  width: 24px; height: 2px;
+  width: 22px; height: 2px;
   background: var(--text-dark);
   border-radius: 2px;
   transition: all 0.3s;
@@ -169,16 +129,23 @@ nav {
     display: flex;
     flex-direction: column;
     position: fixed;
-    top: 64px; right: 0; left: 0;
+    top: 67px; right: 0; left: 0;
     background: var(--nav-bg);
     border-bottom: 1px solid var(--border);
-    padding: 1rem 1.5rem;
+    padding: 1rem clamp(1rem, 4vw, 1.5rem);
     gap: 0.3rem;
     z-index: 999;
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     animation: nav-drop 0.25s ease;
+    max-height: calc(100vh - 67px);
+    overflow-y: auto;
   }
-  .nav-links.open a { font-size: 0.95rem; padding: 0.6rem 0.8rem; }
+  .nav-links.open a {
+    font-size: 1rem;
+    padding: 0.65rem 0.8rem;
+    width: 100%;
+    display: block;
+  }
 }
 @keyframes nav-drop {
   from { opacity: 0; transform: translateY(-8px); }
@@ -211,17 +178,18 @@ nav {
 }
 .hero-content { position: relative; z-index: 1; max-width: 800px; }
 .hero-question {
-  font-size: clamp(1rem, 3vw, 1.3rem);
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
   color: #a0aec0;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
   font-weight: 400;
 }
 .hero-title {
-  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  font-size: clamp(1.7rem, 5vw + 1rem, 3.8rem);
   font-weight: 900;
   color: white;
-  line-height: 1.3;
-  margin-bottom: 1.5rem;
+  line-height: 1.25;
+  margin-bottom: 1.2rem;
+  word-break: break-word;
 }
 .hero-title .highlight {
   background: linear-gradient(135deg, #f093fb, #f5576c);
@@ -232,11 +200,11 @@ nav {
 .typewriter-cursor {
   display: inline-block;
   width: 3px;
-  height: 1em;
+  height: 0.85em;
   background: #f093fb;
   margin-right: 4px;
   animation: blink 0.7s step-end infinite;
-  vertical-align: text-bottom;
+  vertical-align: middle;
 }
 @keyframes blink { 50% { opacity: 0; } }
 
@@ -270,30 +238,31 @@ nav {
   background: rgba(255,255,255,0.07);
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: 16px;
-  padding: 1.5rem 2rem;
-  margin: 2rem auto;
-  max-width: 500px;
+  padding: clamp(1rem, 3vw, 1.5rem) clamp(1rem, 4vw, 2rem);
+  margin: 1.5rem auto;
+  max-width: min(500px, 90vw);
   backdrop-filter: blur(10px);
 }
 .stat-big {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-size: clamp(1.2rem, 3.5vw + 0.5rem, 2.2rem);
   font-weight: 900;
   color: #f093fb;
+  word-break: break-word;
 }
-.stat-label { color: #a0aec0; font-size: 0.9rem; }
+.stat-label { color: #a0aec0; font-size: clamp(0.78rem, 2vw, 0.9rem); }
 
 .cta-btn {
   display: inline-block;
-  padding: 1rem 2.5rem;
+  padding: clamp(0.7rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2.5rem);
   background: var(--grad);
   color: white;
   border-radius: 50px;
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
   font-family: var(--font);
   cursor: pointer;
   border: none;
-  margin-top: 1.5rem;
+  margin-top: 1.2rem;
   transition: all 0.3s;
   box-shadow: 0 4px 20px rgba(102,126,234,0.4);
 }
@@ -303,16 +272,19 @@ nav {
 .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1rem,4vw,2rem); }
 
 .section-title {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-size: clamp(1.5rem, 4vw + 0.8rem, 2.8rem);
   font-weight: 900;
   margin-bottom: 0.5rem;
   color: var(--text-dark);
+  word-break: break-word;
+  line-height: 1.25;
 }
 .section-title .accent { color: var(--primary); }
 .section-subtitle {
   color: var(--text-light);
-  font-size: 1rem;
-  margin-bottom: 3rem;
+  font-size: clamp(0.92rem, 2vw + 0.2rem, 1.05rem);
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
 }
 .section-badge {
   display: inline-block;
@@ -370,21 +342,21 @@ nav {
   overflow: hidden;
 }
 .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
-.card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-.card-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.7rem; color: var(--text-dark); }
-.card-text { color: var(--text-light); font-size: 0.95rem; line-height: 1.7; }
+.card-icon  { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 1rem; }
+.card-title { font-size: clamp(1rem, 2.5vw, 1.2rem); font-weight: 700; margin-bottom: 0.7rem; color: var(--text-dark); word-break: break-word; }
+.card-text  { color: var(--text-light); font-size: clamp(0.85rem, 1.8vw, 0.95rem); line-height: 1.75; }
 
 /* ===== الإحصائيات ===== */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
-  margin: 2.5rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+  gap: clamp(0.8rem, 2vw, 1.5rem);
+  margin: 2rem 0;
 }
 .stat-card {
   background: var(--card-bg);
   border-radius: var(--radius);
-  padding: 1.5rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
   text-align: center;
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
@@ -392,16 +364,16 @@ nav {
 }
 .stat-card:hover { transform: scale(1.03); }
 .stat-number {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(2rem, 4vw + 1rem, 3rem);
   font-weight: 900;
   background: var(--grad);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   line-height: 1;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
-.stat-desc { font-size: 0.85rem; color: var(--text-light); }
+.stat-desc { font-size: clamp(0.8rem, 1.5vw + 0.1rem, 0.88rem); color: var(--text-light); }
 
 /* ===== شريط التقدم ===== */
 .progress-item { margin-bottom: 1.5rem; }
@@ -514,11 +486,9 @@ nav {
 
 /* ===== قسم الإيجابيات ===== */
 /* قسم تعريف شمشون */
-#shamshon-intro { background: linear-gradient(135deg, #f8f0ff 0%, #fff0f8 100%); }
-[data-theme="dark"] #shamshon-intro { background: linear-gradient(135deg, #1a1030 0%, #1a0820 100%); }
+#shamshon-intro { background: linear-gradient(135deg, #1a1030 0%, #1a0820 100%); }
 
-#positive { background: linear-gradient(135deg, #f0fff4 0%, #fff5f5 100%); }
-[data-theme="dark"] #positive { background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%); }
+#positive { background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%); }
 .pos-card {
   background: var(--card-bg);
   border-radius: var(--radius);
@@ -583,8 +553,8 @@ nav {
   transition: all 0.3s;
 }
 .tl-content:hover { box-shadow: var(--shadow-lg); transform: translateX(-3px); }
-.tl-title { font-size: 1.3rem; font-weight: 800; margin-bottom: 0.5rem; color: var(--primary); }
-.tl-desc { color: var(--text-light); font-size: 0.95rem; margin-bottom: 1rem; }
+.tl-title { font-size: clamp(1.05rem, 2.5vw, 1.3rem); font-weight: 800; margin-bottom: 0.5rem; color: var(--primary); word-break: break-word; }
+.tl-desc  { color: var(--text-light); font-size: clamp(0.85rem, 1.8vw, 0.95rem); margin-bottom: 1rem; line-height: 1.75; }
 .apps-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
 .app-badge {
   display: flex; align-items: center; gap: 0.3rem;
@@ -802,8 +772,7 @@ nav {
 }
 
 /* ===== قسم الرأي الشخصي ===== */
-#personal { background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); }
-[data-theme="dark"] #personal { background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%); }
+#personal { background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%); }
 .personal-timeline {
   display: flex;
   gap: 1rem;
@@ -910,8 +879,7 @@ nav {
 .quiz-btn:hover { transform: translateY(-2px); }
 
 /* ===== خطة العمل ===== */
-#action-plan { background: linear-gradient(135deg, #f0fff4, #ebf8ff); }
-[data-theme="dark"] #action-plan { background: linear-gradient(135deg, #1a202c, #2d3748); }
+#action-plan { background: linear-gradient(135deg, #1a202c, #2d3748); }
 .plan-form {
   background: var(--card-bg);
   border-radius: var(--radius);
@@ -1160,63 +1128,156 @@ footer {
 .dop-leaf:last-child { border: none; }
 .dop-leaf-icon { font-size: 1rem; }
 
-/* ===== Layout Responsive ===== */
+/* ===== Layout ===== */
 section {
   padding: clamp(2.5rem, 6vw, 5rem) clamp(1rem, 4vw, 2rem);
   max-width: 1200px;
   margin: 0 auto;
-  overflow-x: hidden;
 }
-.section-full { max-width: 100%; padding: clamp(2.5rem,6vw,5rem) 0; overflow-x: hidden; }
-.section-inner { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1rem,4vw,2rem); }
+.section-full  { max-width: 100%; padding: clamp(2.5rem, 6vw, 5rem) 0; }
+.section-inner { max-width: 1200px; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 2rem); }
 
-/* Tablet */
-@media(max-width: 900px) {
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .cards-grid { grid-template-columns: repeat(2, 1fr); }
+/* ===== Typography fluid ===== */
+body { font-size: clamp(15px, 2vw, 16px); }
+p, .card-text, .tl-desc, .section-subtitle {
+  font-size: clamp(0.92rem, 2vw + 0.1rem, 1rem);
+  line-height: 1.85;
+}
+.card-title, .tl-title { font-size: clamp(1rem, 2.5vw + 0.2rem, 1.2rem); }
+.stat-desc, .progress-header, .checklist li,
+.quiz-option, .form-label, .ref-entry { font-size: clamp(0.85rem, 1.8vw + 0.1rem, 0.95rem); }
+
+/* ===== Grids fluid ===== */
+.cards-grid     { grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); }
+.stats-grid     { grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr)); }
+.challenge-cards{ grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+.two-cols   { display: grid !important; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)) !important; gap: 1.2rem; }
+.three-cols { display: grid !important; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)) !important; gap: 1rem; }
+
+/* ===== Tablet (max 900px) ===== */
+@media (max-width: 900px) {
+  .nav-links a { font-size: 0.75rem; padding: 0.3rem 0.5rem; }
 }
 
-/* Mobile */
-@media(max-width: 640px) {
-  .cards-grid { grid-template-columns: 1fr; }
-  .stats-grid { grid-template-columns: 1fr 1fr; }
+/* ===== Mobile (max 640px) ===== */
+@media (max-width: 640px) {
+  /* Grids */
+  .cards-grid      { grid-template-columns: 1fr !important; }
+  .stats-grid      { grid-template-columns: 1fr 1fr !important; }
+  .challenge-cards { grid-template-columns: 1fr !important; }
+
+  /* Timeline */
   .timeline::before { right: 14px; }
-  .timeline-item { padding-right: 44px; }
-  .tl-dot { right: 0; width: 28px; height: 28px; font-size: 0.75rem; }
-  .compare-table { font-size: 0.78rem; }
-  .challenge-cards { grid-template-columns: 1fr; }
+  .timeline-item    { padding-right: 44px; }
+  .tl-dot           { right: 0; width: 28px; height: 28px; font-size: 0.75rem; }
+
+  /* Tables */
+  .compare-table, .habits-table { font-size: 0.75rem; }
+  .compare-table thead th       { padding: 0.6rem 0.5rem; }
+  .compare-table tbody td       { padding: 0.5rem; }
+
+  /* Before/After */
+  .before-after-container { height: clamp(180px, 55vw, 260px); }
+  .ba-label { font-size: clamp(0.85rem, 3.5vw, 1.1rem); }
+  .ba-stats { font-size: clamp(0.62rem, 2vw, 0.78rem); line-height: 1.7; }
+
+  /* Personal timeline */
   .personal-timeline { gap: 0.4rem; }
-  .pt-item { width: clamp(105px, 30vw, 145px); }
-  .ba-label { font-size: clamp(0.9rem, 3vw, 1.2rem); }
-  .ba-stats { font-size: clamp(0.65rem, 1.8vw, 0.82rem); }
-  .nav-logo { font-size: 0.82rem; }
+  .pt-item      { width: clamp(100px, 28vw, 140px); padding: 0.8rem; }
+  .pt-icon      { font-size: 1.4rem; }
+  .pt-label     { font-size: 0.7rem; }
+  .pt-text      { font-size: 0.65rem; }
+  .pt-connector { font-size: 1rem; padding: 0 0.2rem; }
+
+  /* Nav */
+  .nav-logo       { font-size: 0.78rem; }
+  .nav-logo span  { display: none; }
+
+  /* Dopamine */
   .dopamine-tree { flex-direction: column; align-items: center; }
+  .dop-branch    { width: 100%; max-width: 100%; }
+
+  /* Hero */
+  .hero-stats { padding: 1rem; }
+  .chips      { gap: 0.3rem; }
+  .chip       { padding: 0.5rem 0.8rem; font-size: 0.75rem; }
+
+  /* Quiz */
+  .quiz-container { padding: 1.2rem; }
+  .quiz-nav       { flex-wrap: wrap; gap: 0.5rem; }
+  .quiz-btn       { padding: 0.6rem 1rem; font-size: 0.82rem; }
+
+  /* Tabs */
+  .tabs-nav { gap: 0.25rem; }
+  .tab-btn  { font-size: 0.7rem; padding: 0.3rem 0.55rem; }
+
+  /* Phone mockup */
+  .phone-mockup-wrap { grid-template-columns: 1fr; }
+  .phone-device      { width: clamp(160px, 55vw, 220px); }
+
+  /* Flashcards */
+  .fc-scene { height: clamp(190px, 55vw, 250px); }
 }
 
-/* Small mobile */
-@media(max-width: 400px) {
-  .stats-grid { grid-template-columns: 1fr; }
-  .tab-btn { font-size: 0.7rem; padding: 0.3rem 0.6rem; }
-}
-
-/* ===== Fluid grid helpers (تستبدل الـ JS fixCols) ===== */
-.two-cols {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)) !important;
-}
-.three-cols {
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)) !important;
+/* ===== Small mobile (max 400px) ===== */
+@media (max-width: 400px) {
+  .stats-grid    { grid-template-columns: 1fr !important; }
+  .tab-btn       { font-size: 0.65rem; padding: 0.25rem 0.45rem; }
+  .share-btns    { gap: 0.4rem; }
+  .share-btn     { padding: 0.45rem 0.7rem; font-size: 0.72rem; }
+  .pt-connector  { display: none; }
 }
 
 /* ===== طباعة ===== */
 @media print {
-  nav, #dark-toggle, .cta-btn, .back-top-btn, .share-btns, .challenge-cta, .quiz-nav { display: none !important; }
+  nav, .cta-btn, .back-top-btn, .share-btns, .challenge-cta, .quiz-nav { display: none !important; }
   body { background: white; color: black; }
   section { page-break-inside: avoid; }
 }
 
 /* ===== Animations مخصصة ===== */
+
+/* ===== Section Flow Indicator ===== */
+.flow-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-light);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.6rem;
+  opacity: 0.7;
+}
+.flow-step-num {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--grad);
+  color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+/* scroll down arrow in hero */
+.scroll-down {
+  position: absolute;
+  bottom: 2rem; left: 50%;
+  transform: translateX(-50%);
+  display: flex; flex-direction: column;
+  align-items: center; gap: 6px;
+  color: rgba(255,255,255,0.4);
+  font-size: 0.72rem;
+  z-index: 2;
+  animation: bounce-down 2s ease-in-out infinite;
+  cursor: pointer;
+}
+.scroll-down svg { width: 20px; height: 20px; }
+@keyframes bounce-down {
+  0%,100% { transform: translateX(-50%) translateY(0); opacity: 0.4; }
+  50%      { transform: translateX(-50%) translateY(8px); opacity: 0.8; }
+}
 
 /* دخول من الأسفل عند الـ scroll */
 .anim-up {
@@ -1250,14 +1311,14 @@ section {
 .stat-card::after {
   content: '';
   position: absolute;
-  top: 0; left: -100%;
+  top: 0; left: 0;
   width: 60%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
-  transform: skewX(-20deg);
-  transition: left 0.5s ease;
+  transform: translateX(-200%) skewX(-20deg);
+  transition: transform 0.6s ease;
 }
-.stat-card:hover::after { left: 150%; }
+.stat-card:hover::after { transform: translateX(350%) skewX(-20deg); }
 
 /* card hover lift مع shadow */
 .card, .tl-content, .stat-card, .pos-card, .quiz-container, .plan-form {
@@ -1415,12 +1476,82 @@ section {
 .fc-nav{display:flex;align-items:center;justify-content:center;gap:.8rem} .fc-btn{padding:.55rem 1.3rem;border-radius:50px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07);color:white;font-family:var(--font);font-weight:700;font-size:.85rem;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:.35rem}
 .fc-btn:hover{background:rgba(255,255,255,.15)} .fc-btn:disabled{opacity:.3;cursor:not-allowed}
 .fc-dots{display:flex;justify-content:center;gap:5px;margin-top:.9rem} .fc-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.18);transition:all .3s} .fc-dot.done{background:#48bb78;transform:scale(1.2)} .fc-dot.curr{background:#f093fb;transform:scale(1.3)}
+
+/* ===== Journey Flow Bar ===== */
+#journey-bar {
+  background: var(--body-bg);
+  border-bottom: 1px solid var(--border);
+  padding: 0.6rem clamp(1rem,4vw,2rem);
+  position: sticky;
+  top: 67px;
+  z-index: 99;
+  overflow-x: auto;
+  scrollbar-width: none;
+  transition: background 0.3s;
+}
+#journey-bar::-webkit-scrollbar { display: none; }
+.journey-steps {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-width: max-content;
+}
+.j-step {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 50px;
+  font-size: clamp(0.62rem, 1.3vw, 0.72rem);
+  font-weight: 600;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.j-step:hover { color: var(--primary); }
+.j-step.active {
+  background: rgba(102,126,234,0.12);
+  color: var(--primary);
+}
+.j-arrow {
+  color: var(--border);
+  font-size: 0.65rem;
+  flex-shrink: 0;
+  margin: 0 0.1rem;
+}
 </style>
 </head>
 <body>
 
 <!-- شريط التقدم -->
 <div id="progress-bar"></div>
+
+<!-- مسار الرحلة -->
+<div id="journey-bar">
+  <nav class="journey-steps" aria-label="مسار القراءة">
+    <a class="j-step" href="#hero">🏠 البداية</a>
+    <span class="j-arrow">›</span>
+    <a class="j-step" href="#intro">📊 المشكلة</a>
+    <span class="j-arrow">›</span>
+    <a class="j-step" href="#negative">⚠️ الأثر السلبي</a>
+    <span class="j-arrow">›</span>
+    <a class="j-step" href="#positive">✅ الإيجابيات</a>
+    <span class="j-arrow">›</span>
+    <a class="j-step" href="#solutions">🔧 الحلول</a>
+    <span class="j-arrow">›</span>
+    <a class="j-step" href="#challenge">🚀 التحدي</a>
+    <span class="j-arrow">›</span>
+    <a class="j-step" href="#analysis">📈 التحليل</a>
+    <span class="j-arrow">›</span>
+    <a class="j-step" href="#personal">💬 الرأي</a>
+    <span class="j-arrow">›</span>
+    <a class="j-step" href="#quiz-section">🤔 اختبر نفسك</a>
+  </nav>
+</div>
 
 <!-- النافبار -->
 <nav id="navbar">
@@ -1444,9 +1575,6 @@ section {
       </svg>
       <span>PDF</span>
     </a>
-    <button id="dark-toggle" title="تبديل الوضع الداكن" aria-label="Dark mode toggle">
-    <img id="theme-icon" src="https://api.iconify.design/ph/moon-fill.svg?color=%23667eea" alt="theme" width="20" height="20">
-  </button>
     <button class="hamburger" id="hamburger" aria-label="القائمة">
       <span></span><span></span><span></span>
     </button>
@@ -1465,10 +1593,17 @@ section {
     
     <div class="hero-stats">
       <div class="stat-big">٤.٨ ساعة = ٧٣ يوم = ٣ سنين</div>
-      <div class="stat-label">كده يقضي المراهق متوسط وقته على السوشيال ميديا سنوياً</div>
+      <div class="stat-label">هكذا يقضي المراهق متوسط وقته على السوشيال ميديا سنوياً</div>
     </div>
     
     <a href="#shamshon-intro" class="cta-btn">ابدأ الرحلة مع شمشون 🚀</a>
+  </div>
+  <!-- سهم scroll للأسفل -->
+  <div class="scroll-down" onclick="document.getElementById('shamshon-intro').scrollIntoView({behavior:'smooth'})">
+    <span>اسكرول للأسفل</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
   </div>
 </section>
 
@@ -1477,15 +1612,15 @@ section {
   <div style="max-width: 800px; margin: 0 auto; text-align: center;">
     <div class="section-badge">الشخصية الرئيسية</div>
     <h2 class="section-title">تعرف على <span class="accent">شمشون</span></h2>
-    <p class="section-subtitle">الشخص اللي هنعرفه طول البحث</p>
+    <p class="section-subtitle">الشخص اللي سنتبعه طول البحث</p>
     
     <div class="card reveal" style="max-width: 600px; margin: 0 auto; text-align: right;">
       <div style="display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
         <div style="font-size: 5rem;">🧒</div>
         <div>
-          <h3 style="font-size: 1.5rem; font-weight: 900; color: var(--primary);">شمشون</h3>
+          <h3 class="card-title" style="color: var(--primary);">شمشون</h3>
           <p style="color: var(--text-light); font-size: 0.9rem;">طالب في تانية إعدادي • ١٥ سنة</p>
-          <p style="color: var(--text-light); font-size: 0.9rem;">ذكي، طموح</p>
+          <p style="color: var(--text-light); font-size: 0.9rem;">ذكي و طموح،</p>
         </div>
       </div>
       <p style="color: var(--text-dark); line-height: 1.9; font-size: 0.95rem;">شمشون ولد عادي جداً - زيك بالظبط. كل ليلة بيقول لنفسه: <strong>"بكرة هبدأ أذاكر بجد. هبطل موبايل."</strong> يصحى الساعة ٧، أول حاجة إيده تروح للموبايل. "دقيقة واحدة بس." الدقيقة بقت نص ساعة.</p>
@@ -1503,7 +1638,7 @@ section {
   <div class="phone-mockup-wrap">
     <div class="mockup-text-side reveal">
       <div class="section-badge" style="background:rgba(240,147,251,0.15);border-color:rgba(240,147,251,0.3);color:#f093fb;">📱 يوم شمشون الافتراضي</div>
-      <h2 class="section-title" style="color:white;margin-bottom:1rem;">هكذا يبدو<br>موبايل شمشون</h2>
+      <h2 class="section-title" style="color:white;margin-bottom:1rem;">ده شكل<br>موبايل شمشون</h2>
       <p style="color:#94a3b8;font-size:clamp(.82rem,1.8vw,.92rem);margin-bottom:1.5rem;line-height:1.8;">الموبايل ده مش مجرد جهاز. ده مصنع دوبامين رخيص شغّال ٢٤ ساعة. كل إشعار = نبضة. كل سكرول = فخ جديد.</p>
       <div class="msr-row">
         <span class="msr-icon">⏱</span>
@@ -1564,7 +1699,7 @@ section {
 
 <!-- المقدمة -->
 <section id="intro">
-  <div class="section-badge reveal">المقدمة</div>
+  <div class="flow-step"><span class="flow-step-num">١</span> المقدمة والمشكلة</div>
   <h2 class="section-title reveal">المقدمة والمشكلة</h2>
   <p class="section-subtitle reveal">إزاي وصلنا لكده؟</p>
 
@@ -1576,7 +1711,7 @@ section {
     </div>
     <div class="stat-card reveal">
       <div class="stat-number" data-target="72" data-suffix="%">0</div>
-      <div class="stat-desc">يشيكوا علي الموبايل أول ما يصحوا</div>
+      <div class="stat-desc">يفحصوا الموبايل أول ما يصحوا</div>
     </div>
     <div class="stat-card reveal">
       <div class="stat-number" data-target="50" data-suffix="%">0</div>
@@ -1621,7 +1756,7 @@ section {
 <!-- الآثار السلبية -->
 <div id="negative" class="section-full">
 <div class="section-inner">
-  <div class="section-badge">الإطار النظري</div>
+  <div class="flow-step" style="color:rgba(255,255,255,.5)"><span class="flow-step-num">٢</span> الإطار النظري</div>
   <h2 class="section-title">الآثار السلبية <span class="accent">⚠️</span></h2>
   <p class="section-subtitle">إزاي دماغك بيتخدع وإزاي الفخ بيشتغل</p>
 
@@ -1692,7 +1827,7 @@ section {
           <div class="hc-center">🔄</div>
         </div>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-top: 1rem;" class="three-cols">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); gap: 1rem; margin-top: 1rem;" class="three-cols">
         <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white;">
           <div class="card-icon">🌅</div>
           <div class="card-title" style="color: #f093fb; font-size: 1rem;">مثال الصبح</div>
@@ -1721,7 +1856,7 @@ section {
         <h3 class="card-title" style="color: #f093fb;">القلق والاكتئاب والمقارنة اللي بتقتل</h3>
         <p style="color: rgba(255,255,255,0.8); line-height: 1.9;">كام مرة شوفت صورة حد على Instagram وحسيت إنك "متأخر"؟ أنت بتقارن "behind the scenes" بتاعك بـ "highlight reel" بتاع غيرك. يعني أنت عارف كل تفاصيل يومك الوحش، لكن بتشوف عند الناس بس اللحظات الحلوة.</p>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;" class="two-cols">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;" class="two-cols">
         <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white; text-align: center;">
           <div style="font-size: 3rem; margin-bottom: 0.5rem;">😔</div>
           <div style="color: #fc8181; font-weight: 700;">أنت بتشوف</div>
@@ -1763,7 +1898,7 @@ section {
         <h3 class="card-title" style="color: #f093fb;">الخوارزميات: الدمية المتحركة</h3>
         <p style="color: rgba(255,255,255,0.8); line-height: 1.9;">تفتكر إنت اللي بتختار تتفرج على إيه؟ خليني أقولك الحقيقة: لأ. فتحت TikTok. شوفت فيديو عن كورة. عجبك. الفيديو اللي بعده؟ عن كورة برضو. وبعده. وبعده. ده مش صدفة.</p>
       </div>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr)); gap: 1rem; margin-bottom: 1.5rem;">
         <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white; text-align: center;">
           <div style="font-size: 2rem; margin-bottom: 0.5rem;">🎰</div>
           <div style="font-weight: 700; color: #f093fb; margin-bottom: 0.3rem;">Variable Rewards</div>
@@ -1801,7 +1936,7 @@ section {
         <h3 class="card-title" style="color: #f093fb;">التنمر الإلكتروني: الكلمة اللي بتفضل</h3>
         <p style="color: rgba(255,255,255,0.8); line-height: 1.9;">نادر نزل صورة. واحد كتبله كومنت وحش. مسح الصورة. بس الكلمة فضلت في دماغه. كل ما ييجي ينزل صورة تاني، يفتكر الكومنت. الكلمة راحت من الإنترنت. بس مش من دماغه.</p>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;" class="two-cols">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 1.5rem; margin-bottom: 1.5rem;" class="two-cols">
         <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white;">
           <div style="font-weight: 700; color: #fc8181; margin-bottom: 1rem;">🏫 التنمر العادي</div>
           <ul style="list-style: none; padding: 0;">
@@ -1835,7 +1970,7 @@ section {
         <p style="color: rgba(255,255,255,0.8); line-height: 1.9;">دماغك اتعود على تحفيز سريع كل ١٥ ثانية - مدة الفيديو. مبقاش قادر يتحمل أي حاجة "بطيئة". قراءة كتاب؟ ممل. فيلم طويل؟ مش قادر أركز. محاضرة؟ عايز أنام. مش عيب فيك. ده اللي الشورتس عملته في دماغك.</p>
       </div>
       <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 14px; padding: 1.5rem; margin-bottom: 1.5rem;">
-        <h4 style="color: white; margin-bottom: 1rem;">📉 مدة الانتباه عبر السنين:</h4>
+        <h3 style="color: white; margin-bottom: 1rem; font-size: clamp(0.9rem, 2vw, 1rem);">📉 مدة الانتباه عبر السنين:</h3>
         <canvas id="attentionChart" height="200"></canvas>
       </div>
       <div class="remember-box">
@@ -1874,7 +2009,7 @@ section {
       </div>
       <div class="card" style="background: rgba(255,255,255,0.04); border-color: rgba(255,255,255,0.08); color: white;">
         <p style="font-weight: 700; color: #f093fb; margin-bottom: 1rem;">📊 ٤.٨ ساعة يومياً × ٣٦٥ = كان ممكن تعمل:</p>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; font-size: 0.85rem; color: rgba(255,255,255,0.8);">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr)); gap: 0.7rem; font-size: 0.85rem; color: rgba(255,255,255,0.8);">
           <div>🌍 تتعلم لغة جديدة (٢٠٠ ساعة)</div>
           <div>📚 تقرا ٣٥ كتاب</div>
           <div>💻 تتقن البرمجة</div>
@@ -1890,7 +2025,7 @@ section {
 
 <!-- الآثار الإيجابية -->
 <section id="positive">
-  <div class="section-badge reveal">الجانب المضيء</div>
+  <div class="flow-step"><span class="flow-step-num">٣</span> الآثار الإيجابية</div>
   <h2 class="section-title reveal">الآثار <span class="accent">الإيجابية</span> ☀️</h2>
   <p class="section-subtitle reveal">السوشيال ميديا مش شر مطلق - المشكلة في الاستخدام مش في الأداة</p>
 
@@ -1926,7 +2061,7 @@ section {
 
 <!-- الحلول -->
 <section id="solutions">
-  <div class="section-badge reveal">الحل العملي</div>
+  <div class="flow-step"><span class="flow-step-num">٤</span> الحل العملي</div>
   <h2 class="section-title reveal">هاك <span class="accent">الخوارزميات</span> 🔧</h2>
   <p class="section-subtitle reveal">٥ استراتيجيات مثبتة علمياً تخليك أنت المسيطر</p>
 
@@ -2062,7 +2197,7 @@ section {
 
 <!-- التحليل -->
 <section id="analysis">
-  <div class="section-badge reveal">التحليل</div>
+  <div class="flow-step"><span class="flow-step-num">٥</span> التحليل</div>
   <h2 class="section-title reveal">التحليل والمقارنة <span class="accent">📊</span></h2>
   <p class="section-subtitle reveal">الفرضية اتثبتت؟</p>
 
@@ -2117,9 +2252,9 @@ section {
 
 <!-- الرأي الشخصي -->
 <section id="personal">
-  <div class="section-badge reveal">الرأي الشخصي</div>
+  <div class="flow-step"><span class="flow-step-num">٦</span> الرأي الشخصي</div>
   <h2 class="section-title reveal">تجربتي الشخصية <span class="accent">💬</span></h2>
-  <p class="section-subtitle reveal">أحمد كرم - كاتب البحث</p>
+  <p class="section-subtitle reveal">أحمد  - كاتب البحث</p>
 
   <div class="personal-timeline reveal">
     <div class="pt-item">
@@ -2155,7 +2290,7 @@ section {
 
   <div class="quote-box reveal" style="max-width: 700px; margin: 2rem auto;">
     <div class="quote-text">"أنت مش ضعيف، أنت مستهدف"</div>
-    <div class="quote-sub">لما فهمت اللعبة، بقيت أعرف ألعبها.</div>
+    <div class="quote-sub">لما تعرف الهجمه بتتعمل ازاي, هتعرف ازاي تتجنبها.</div>
   </div>
 
   <div class="card reveal" style="max-width: 700px; margin: 0 auto;">
@@ -2167,7 +2302,7 @@ section {
 <!-- اختبر نفسك -->
 <section id="quiz-section">
   <div style="text-align: center;">
-    <div class="section-badge reveal">اختبر نفسك</div>
+    <div class="flow-step"><span class="flow-step-num">٧</span> اختبر نفسك</div>
     <h2 class="section-title reveal">هل أنت <span class="accent">مدمن</span>؟ 🤔</h2>
     <p class="section-subtitle reveal">٤ أسئلة تحدد مستواك بصدق</p>
   </div>
@@ -2312,7 +2447,7 @@ section {
 
 <!-- المراجع -->
 <section id="references">
-  <div class="section-badge reveal">المصادر</div>
+  <div class="flow-step"><span class="flow-step-num">٨</span> المراجع</div>
   <h2 class="section-title reveal">المراجع والمصادر <span class="accent">📚</span></h2>
 
   <div class="ref-category reveal">
@@ -2395,8 +2530,7 @@ section {
     <div class="footer-title">أثر وسائل التواصل الاجتماعي على الصحة النفسية للمراهقين</div>
     <div class="footer-sub">
       إعداد: أحمد كرم أحمد ياسين | الصف: الأول الإعدادي<br>
-     المدرسة: د. أحمد زويل الرسمية | العام الدراسي: ٢٠٢٥-٢٠٢٦
-    تحت اشراف: ساره عادل  
+      المدرسة: د. أحمد زويل الرسمية | العام الدراسي: ٢٠٢٥-٢٠٢٦
     </div>
     <div class="share-btns">
       <button class="share-btn whatsapp" onclick="shareWhatsApp()">💬 واتساب</button>
@@ -2413,7 +2547,7 @@ section {
       </a>
     </div>
     <p style="color: rgba(255,255,255,0.4); font-size: 0.8rem; margin-top: 1rem;">
-      انتهى البحث ✨ اتمنى التوفيق ليكم
+      انتهى البحث ✨
     </p>
   </div>
 </footer>
@@ -2422,29 +2556,7 @@ section {
 <button class="back-top-btn" id="backTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
 
 <script>
-const darkToggle = document.getElementById('dark-toggle');
-const themeIcon = document.getElementById('theme-icon');
 const html = document.documentElement;
-
-function applyTheme(dark) {
-  html.setAttribute('data-theme', dark ? 'dark' : 'light');
-  themeIcon.src = dark
-    ? 'https://api.iconify.design/ph/moon-fill.svg?color=%23667eea'
-    : 'https://api.iconify.design/ph/sun-fill.svg?color=%23ed8936';
-  localStorage.setItem('theme', dark ? 'dark' : 'light');
-}
-
-// تحميل الثيم المحفوظ
-const savedTheme = localStorage.getItem('theme');
-if(savedTheme) applyTheme(savedTheme === 'dark');
-
-darkToggle.addEventListener('click', () => {
-  const isDark = html.getAttribute('data-theme') === 'dark';
-  applyTheme(!isDark);
-  // إعادة رسم الشارتات بعد تغيير الثيم
-  const tc = document.getElementById('timeChart');
-  if(tc && tc._chartjs) initCharts();
-});
 
 /* ===== Progress Bar ===== */
 window.addEventListener('scroll', () => {
@@ -2460,7 +2572,7 @@ document.getElementById('hamburger').addEventListener('click', () => {
 
 /* ===== Typewriter ===== */
 const phrases = [
-  'امتي آخر مرة قعدت ساعة بدون موبايل؟',
+  'متى آخر مرة قعدت ساعة بدون موبايل؟',
   'هل أنت مسيطر... أم مسيطر عليك؟',
   'أثر السوشيال ميديا على صحتك النفسية'
 ];
@@ -2555,13 +2667,12 @@ const chartObs = new IntersectionObserver((entries) => {
 const chartSection = document.getElementById('intro');
 if(chartSection) chartObs.observe(chartSection);
 
-/* helper: returns chart text/grid colors based on current theme */
+/* chart colors — dark mode only */
 function chartColors() {
-  const dark = html.getAttribute('data-theme') === 'dark';
   return {
-    text: dark ? '#e2e8f0' : '#2d3748',
-    grid: dark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)',
-    border: dark ? '#2d3748' : '#fff'
+    text:   '#e2e8f0',
+    grid:   'rgba(255,255,255,0.06)',
+    border: '#2d3748'
   };
 }
 
@@ -2596,7 +2707,7 @@ function initCharts() {
   chartStats = new Chart(document.getElementById('statsChart'), {
     type: 'bar',
     data: {
-      labels: ['مدمنين', 'يفحصون صباحاً', 'قلق واكتئاب', 'تنمر إلكتروني'],
+      labels: ['مدمنين', 'يشيكوا صباحاً', 'قلق واكتئاب', 'تنمر إلكتروني'],
       datasets: [{
         label: 'النسبة المئوية',
         data: [50, 72, 56, 59],
@@ -2678,10 +2789,10 @@ const progObs = new IntersectionObserver((entries) => {
         options: {
           responsive: true,
           maintainAspectRatio: false,
-          plugins: { legend: { labels: { color: html.getAttribute('data-theme') === 'dark' ? '#e2e8f0' : '#2d3748', font: { family: 'Cairo' } } } },
+          plugins: { legend: { labels: { color: '#e2e8f0', font: { family: 'Cairo' } } } },
           scales: {
-            y: { min: 2, max: 6, ticks: { color: html.getAttribute('data-theme') === 'dark' ? '#e2e8f0' : '#2d3748', font: { family: 'Cairo' }, callback: v => v + 'h' }, grid: { color: html.getAttribute('data-theme') === 'dark' ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)' } },
-            x: { ticks: { color: html.getAttribute('data-theme') === 'dark' ? '#e2e8f0' : '#2d3748', font: { family: 'Cairo' } }, grid: { display: false } }
+            y: { min: 2, max: 6, ticks: { color: '#e2e8f0', font: { family: 'Cairo' }, callback: v => v + 'h' }, grid: { color: 'rgba(255,255,255,0.05)' } },
+            x: { ticks: { color: '#e2e8f0', font: { family: 'Cairo' } }, grid: { display: false } }
           },
           animation: { duration: 1500 }
         }
@@ -2720,8 +2831,9 @@ function updateSlider(x) {
   const rect = baContainer.getBoundingClientRect();
   let pct = ((x - rect.left) / rect.width) * 100;
   pct = Math.max(2, Math.min(98, pct));
-  baDivider.style.left = pct + '%';
-  // الجزء الأخضر "بعد" يبدأ من موضع السلايدر
+  /* transform أسرع من left على GPU */
+  baDivider.style.left = '0';
+  baDivider.style.transform = `translateX(${rect.width * pct / 100}px) translateX(-50%)`;
   baAfter.style.clipPath = `inset(0 0 0 ${pct}%)`;
 }
 
@@ -2935,27 +3047,37 @@ function copyRef(btn) {
 }
 
 /* ===== Share ===== */
-const shareText = 'بحث رائع عن أثر السوشيال ميديا على الصحة النفسية للمراهقين - مع شمشون!';
+const shareText = 'بحث عن أثر السوشيال ميديا على الصحة النفسية للمراهقين !';
 const shareUrl = window.location.href;
 
 function shareWhatsApp() { window.open('https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + shareUrl)); }
 function shareTwitter() { window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(shareUrl)); }
 function shareFacebook() { window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl)); }
 
-/* ===== Responsive 2-col fix ===== */
-function fixCols() {
-  document.querySelectorAll('.two-cols').forEach(el => {
-    if(window.innerWidth < 640) el.style.gridTemplateColumns = '1fr';
-    else el.style.gridTemplateColumns = '1fr 1fr';
-  });
-  document.querySelectorAll('.three-cols').forEach(el => {
-    if(window.innerWidth < 640) el.style.gridTemplateColumns = '1fr';
-    else if(window.innerWidth < 900) el.style.gridTemplateColumns = '1fr 1fr';
-    else el.style.gridTemplateColumns = '1fr 1fr 1fr';
-  });
-}
-window.addEventListener('resize', fixCols);
-fixCols();
+// Responsive grids handled by CSS auto-fit minmax
+
+/* ===== Journey Bar — تحديد القسم الحالي ===== */
+(function() {
+  const jSteps = document.querySelectorAll('.j-step');
+  const sectionIds = ['hero','intro','negative','positive','solutions','challenge','analysis','personal','quiz-section'];
+  const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+  const jObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const id = e.target.id;
+        jSteps.forEach(s => {
+          s.classList.toggle('active', s.getAttribute('href') === '#' + id);
+        });
+        // scroll the active step into view inside the bar
+        const active = document.querySelector('.j-step.active');
+        if (active) active.scrollIntoView({ inline: 'nearest', behavior: 'smooth', block: 'nearest' });
+      }
+    });
+  }, { threshold: 0.3, rootMargin: '-64px 0px -40% 0px' });
+
+  sections.forEach(s => jObs.observe(s));
+})();
 
 // Load challenge state from localStorage
 [1,2,3].forEach(n => {
